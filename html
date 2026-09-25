@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function() {
+        try {
+            var url = new URL(window.location.href);
+            // 避免干扰自定义器/预览场景
+            var skipParams = ['customize_changeset_uuid', 'customize_theme', 'customize_messenger_channel', 'preview', 'preview_id'];
+            for (var i = 0; i < skipParams.length; i++) {
+                if (url.searchParams.has(skipParams[i])) {
+                    return;
+                }
+            }
+
+            if (!window.DS_AUTH_STATUS_PROMISE) {
+                var ajaxUrl = 'https://www.wujiit.com/wp-admin/admin-ajax.php';
+                var ts = Date.now();
+                window.DS_AUTH_STATUS_PROMISE = fetch(ajaxUrl + '?_=' + ts, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache'
+                    },
+                    body: 'action=developer_starter_user_status&_nocache=' + ts,
+                    credentials: 'same-origin',
+                    cache: 'no-store'
+                })
+                    .then(function (response) { return response.json(); })
+                    .catch(function () { return null; });
+            }
+
+            window.DS_AUTH_STATUS_PROMISE.then(function (data) {
+                window.DS_AUTH_STATUS = (data && data.success) ? data.data : null;
+                window.DS_AUTH_CHECKED = true;
+            });
+        } catch (e) {
+            // 忽略异常
+        }
+    })();
+    </script>
+        <script>
+    (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    })();
+    </script>
+        <title>GIF分解工具 &#8211; GIF动图拆分为单帧图片 &#8211; 灵简AI</title>
+<meta name='robots' content='max-image-preview:large' />
+                                    <meta name="robots" content="index,follow" />
+                            <link rel="canonical" href="https://www.wujiit.com/giffenjie" />
+                
+        <!-- Open Graph -->
+        <meta property="og:title" content="GIF分解工具 &#8211; GIF动图拆分为单帧图片" />
+        <meta property="og:description" content="" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.wujiit.com/giffenjie" />
+        <meta property="og:site_name" content="灵简AI" />
+                
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="GIF分解工具 &#8211; GIF动图拆分为单帧图片" />
+        <meta name="twitter:description" content="" />
+                <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"灵简AI","url":"https://www.wujiit.com","logo":{"@type":"ImageObject","url":""},"email":"iticu@qq.com"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.wujiit.com"},{"@type":"ListItem","position":2,"name":"GIF分解工具 &#8211; GIF动图拆分为单帧图片"}]}</script>
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='xb-adcustom-frontend-css' href='https://www.wujiit.com/wp-content/plugins/xb-adcustom-plugin/assets/css/frontend.css?ver=1.2.1' media='all' />
+<link rel='stylesheet' id='qls-group-buy-css' href='https://www.wujiit.com/wp-content/plugins/qilingshop/static/shop/css/group-buy.css?ver=2.0.7' media='all' />
+<link rel='stylesheet' id='developer-starter-main-css' href='https://www.wujiit.com/wp-content/themes/qiling/assets/css/main.css?ver=1772288791' media='all' />
+<style id='developer-starter-main-inline-css'>
+:root{
+            --color-primary:#2563eb;
+            --color-primary-dark:#1f54c7;
+            --color-primary-light:#3a72ed;
+            --color-bg-dark: #111827;
+            --color-card-dark: #1f2937;
+            --color-text-light: #f3f4f6;
+        }
+        
+        [data-theme='dark'] .author-profile-header,
+        .dark-mode .author-profile-header,
+        [data-theme='dark'] .account-header,
+        .dark-mode .account-header {
+            background: var(--color-bg-dark) !important;
+            background-image: none !important;
+            color: var(--color-text-light);
+        }
+        
+        [data-theme='dark'] .author-profile-header::before,
+        .dark-mode .author-profile-header::before,
+        [data-theme='dark'] .account-header::before,
+        .dark-mode .account-header::before {
+            opacity: 0.05;
+        }
+            .site-header.header-transparent.header-scrolled .primary-navigation>ul>li>a:hover,
+            .site-header.header-transparent.header-scrolled .primary-navigation li.current-menu-item>a,
+            .site-header.header-transparent.header-scrolled .primary-navigation li.current_page_item>a {
+                color: #ffffff !important;
+            }
+        .primary-navigation > ul > li > a {
+            position: relative;
+            overflow: visible !important;
+        }
+        .primary-navigation > ul > li > a t,
+        .primary-navigation > ul > li > a .menu-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(30%, -50%);
+            font-size: 10px;
+            line-height: 16px;
+            padding: 0 5px;
+            border-radius: 3px;
+            color: #fff;
+            background: #ff4d4f; /* Default fallback color */
+            white-space: nowrap;
+            font-style: normal;
+            display: inline-block;
+            text-decoration: none;
+            z-index: 10;
+            font-weight: normal;
+        }
+        /* Fix for mobile menu */
+        .mobile-menu-nav li a t,
+        .mobile-menu-nav li a .menu-badge {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 10px;
+            padding: 0 4px;
+            border-radius: 2px;
+            color: #fff;
+            background: #ff4d4f;
+            font-style: normal;
+            line-height: 1.4;
+            vertical-align: middle;
+            transform: none;
+            position: static;
+        }
+        
+/*# sourceURL=developer-starter-main-inline-css */
+</style>
+<link rel='stylesheet' id='qiling-child-style-css' href='https://www.wujiit.com/wp-content/themes/qiling-child/style.css?ver=2.1.6020401' media='all' />
+<link rel='stylesheet' id='developer-starter-login-modal-css' href='https://www.wujiit.com/wp-content/themes/qiling/assets/css/login-modal.css?ver=1772288791' media='all' />
+<script src="https://www.wujiit.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://www.wujiit.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="canonical" href="https://www.wujiit.com/giffenjie" />
+<link rel="icon" href="https://aiimg.qiyucloud.com/wp-content/uploads/2025/07/17153442125.jpg" sizes="32x32" />
+<link rel="icon" href="https://aiimg.qiyucloud.com/wp-content/uploads/2025/07/17153442125.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://aiimg.qiyucloud.com/wp-content/uploads/2025/07/17153442125.jpg" />
+<meta name="msapplication-TileImage" content="https://aiimg.qiyucloud.com/wp-content/uploads/2025/07/17153442125.jpg" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0b3311f8c69cbfb33b06d5e4f5c88a8b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+</head>
+
+
+<body class="wp-singular page-template page-template-template page-template-gmag page-template-templategmag-php page page-id-1719 wp-embed-responsive wp-theme-qiling wp-child-theme-qiling-child page-giffenjie has-sticky-header header-style-default no-sidebar">
+
+<div id="page" class="site">
+
+    <header id="masthead" class="site-header" style="">
+        <div class="header-inner">
+            <div class="container header-flex">
+                <div class="site-branding">
+                                            <a href="https://www.wujiit.com/" class="custom-logo-link">
+                            <img src="https://aiimg.qiyucloud.com/wp-content/uploads/2025/03/20250326025910641.jpg" alt="灵简AI" class="custom-logo" />
+                        </a>
+                                    </div>
+
+                                <nav id="site-navigation" class="primary-navigation">
+                    <ul id="primary-menu" class="menu"><li id="menu-item-2778" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2778"><a href="https://www.wujiit.com/">首页</a></li>
+<li id="menu-item-1299" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1299 menu-item-deleted-content"><a href="https://www.wujiit.com/?page_id=1298">图像</a>
+<ul class="sub-menu">
+<li id="menu-item-926" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-926"><a href="https://www.wujiit.com/ai-seg">AI通用智能抠图</a></li>
+<li id="menu-item-924" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-924"><a href="https://www.wujiit.com/product">AI商品图片抠图</a></li>
+<li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-948"><a href="https://www.wujiit.com/food">AI食品图片抠图</a></li>
+<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="https://www.wujiit.com/ai-body">AI人体图片抠图</a></li>
+<li id="menu-item-925" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-925"><a href="https://www.wujiit.com/hd-image">AI智能抠图高清版</a></li>
+<li id="menu-item-485" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-485"><a href="https://www.wujiit.com/shiyi">AI模特试衣</a></li>
+<li id="menu-item-818" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-818"><a href="https://www.wujiit.com/xiezhen">AI证件写真照</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346 menu-item-deleted-content"><a href="https://www.wujiit.com/?page_id=335">AI多功能编辑</a></li>
+<li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="https://www.wujiit.com/ai-repaint">AI人像漫画</a></li>
+<li id="menu-item-431" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-431"><a href="https://www.wujiit.com/tupianya">图像压缩</a></li>
+<li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a href="https://www.wujiit.com/quwu">图像去雾</a></li>
+<li id="menu-item-531" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-531"><a href="https://www.wujiit.com/ai-enhance">清晰度增强</a></li>
+<li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="https://www.wujiit.com/lashen">图像拉伸</a></li>
+<li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="https://www.wujiit.com/ai-enlarge">图像放大</a></li>
+<li id="menu-item-1361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"><a href="https://www.wujiit.com/tuhe">身份证合并</a></li>
+<li id="menu-item-1716" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1716"><a href="https://www.wujiit.com/tupin">多图片拼接</a></li>
+<li id="menu-item-1360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1360"><a href="https://www.wujiit.com/shuiyin">图片加水印</a></li>
+<li id="menu-item-430" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-430"><a href="https://www.wujiit.com/zhuanhuan">图片格式转换</a></li>
+<li id="menu-item-534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-534"><a href="https://www.wujiit.com/chicun">图片尺寸修改</a></li>
+<li id="menu-item-1725" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1725"><a href="https://www.wujiit.com/yuanjiao">图片圆角美化</a></li>
+<li id="menu-item-989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-989"><a href="https://www.wujiit.com/heic">HEIC图片转换</a></li>
+<li id="menu-item-1365" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1365"><a href="https://www.wujiit.com/toif">AVIF图片转换</a></li>
+<li id="menu-item-1076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1076"><a href="https://www.wujiit.com/imgcolor">图片颜色提取</a></li>
+<li id="menu-item-711" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-711"><a href="https://www.wujiit.com/ai-colorize">黑白图像上彩色</a></li>
+<li id="menu-item-710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-710"><a href="https://www.wujiit.com/hei">彩色图像变黑白</a></li>
+</ul>
+</li>
+<li id="menu-item-1307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1307"><a href="https://www.wujiit.com/yuyin">文本</a>
+<ul class="sub-menu">
+<li id="menu-item-1148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1148"><a href="https://www.wujiit.com/voice">语音转文字</a></li>
+<li id="menu-item-1308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1308"><a href="https://www.wujiit.com/tts">文本转语音</a></li>
+<li id="menu-item-991" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-991 menu-item-deleted-content"><a href="https://www.wujiit.com/?page_id=956">AI一键文案</a></li>
+<li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-990 menu-item-deleted-content"><a href="https://www.wujiit.com/?page_id=973">AI一键写作</a></li>
+<li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1082"><a href="https://www.wujiit.com/checker">AI文章纠正</a></li>
+<li id="menu-item-1742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1742"><a href="https://www.wujiit.com/wenbenjiucuo">AI短文本纠错</a></li>
+<li id="menu-item-1745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1745"><a href="https://www.wujiit.com/wenbenanquan">AI文本安全审查</a></li>
+<li id="menu-item-1320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://www.wujiit.com/ai-jiantao">AI一键检讨书</a></li>
+<li id="menu-item-1318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1318"><a href="https://www.wujiit.com/biaoge">AI表格整理</a></li>
+<li id="menu-item-1319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://www.wujiit.com/quwen">文本去重</a></li>
+<li id="menu-item-837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-837"><a href="https://www.wujiit.com/zifu">字符统计</a></li>
+<li id="menu-item-862" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-862"><a href="https://www.wujiit.com/pinyin">文字转拼音</a></li>
+<li id="menu-item-889" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-889"><a href="https://www.wujiit.com/mars">火星文转换</a></li>
+<li id="menu-item-891" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-891"><a href="https://www.wujiit.com/fanti">简体繁体互转</a></li>
+<li id="menu-item-1968" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1968"><a href="https://www.wujiit.com/zimu">字母大小写转换</a></li>
+<li id="menu-item-1916" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1916"><a href="https://www.wujiit.com/markdown">Markdown编辑器</a></li>
+</ul>
+</li>
+<li id="menu-item-1301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1301"><a href="https://www.wujiit.com/pdf">PDF</a>
+<ul class="sub-menu">
+<li id="menu-item-1830" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"><a href="https://www.wujiit.com/tutopdf">图片转PDF</a></li>
+<li id="menu-item-1831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="https://www.wujiit.com/pdftotu">PDF转图片</a></li>
+<li id="menu-item-672" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-672"><a href="https://www.wujiit.com/pdfparser">PDF AI解析</a></li>
+<li id="menu-item-1844" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1844"><a href="https://www.wujiit.com/pdfjiami">PDF加密</a></li>
+<li id="menu-item-1842" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1842"><a href="https://www.wujiit.com/pdfjia">PDF加水印</a></li>
+<li id="menu-item-1966" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1966"><a href="https://www.wujiit.com/pdfto">PDF转文档</a></li>
+<li id="menu-item-1967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1967"><a href="https://www.wujiit.com/topdf">文档转PDF</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.wujiit.com/pdfqm">PDF加签名</a></li>
+<li id="menu-item-1834" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1834"><a href="https://www.wujiit.com/pdfchai">PDF拆分器</a></li>
+<li id="menu-item-1832" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1832"><a href="https://www.wujiit.com/pdfheyi">PDF多页合并</a></li>
+<li id="menu-item-1835" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1835"><a href="https://www.wujiit.com/pdfhe">PDF文档合并</a></li>
+<li id="menu-item-1906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1906"><a href="https://www.wujiit.com/pdfwenben">PDF文本提取</a></li>
+<li id="menu-item-1828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1828"><a href="https://www.wujiit.com/pdftiqu">PDF图片提取</a></li>
+<li id="menu-item-1833" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1833"><a href="https://www.wujiit.com/pdfye">PDF删除页面</a></li>
+<li id="menu-item-1829" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1829"><a href="https://www.wujiit.com/pdfduo">PDF多功能工具<</a></li>
+</ul>
+</li>
+<li id="menu-item-1310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1310"><a href="https://www.wujiit.com/kaifa">开发</a>
+<ul class="sub-menu">
+<li id="menu-item-1483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1483"><a href="https://www.wujiit.com/font">免费字体下载</a></li>
+<li id="menu-item-1799" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1799"><a href="https://www.wujiit.com/zhengze">正则工具箱</a></li>
+<li id="menu-item-899" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-899"><a href="https://www.wujiit.com/js">JS压缩</a></li>
+<li id="menu-item-900" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-900"><a href="https://www.wujiit.com/css">CSS美化</a></li>
+<li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="https://www.wujiit.com/json">JSON美化</a></li>
+<li id="menu-item-902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-902"><a href="https://www.wujiit.com/htmlcode">HTML格式化</a></li>
+<li id="menu-item-1078" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1078"><a href="https://www.wujiit.com/xml">XML代码美化</a></li>
+<li id="menu-item-979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-979"><a href="https://www.wujiit.com/scss">SCSS代码美化</a></li>
+<li id="menu-item-980" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-980"><a href="https://www.wujiit.com/react">React代码美化</a></li>
+<li id="menu-item-1798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1798"><a href="https://www.wujiit.com/csszujian">CSS组件示例</a></li>
+<li id="menu-item-853" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-853"><a href="https://www.wujiit.com/jinzhi">进制转换工具</a></li>
+<li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a href="https://www.wujiit.com/url">URL编码解码</a></li>
+<li id="menu-item-1312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1312"><a href="https://www.wujiit.com/imgcolor">图片颜色提取</a></li>
+<li id="menu-item-1311" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1311"><a href="https://www.wujiit.com/color">颜色搭配值</a></li>
+<li id="menu-item-887" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-887"><a href="https://www.wujiit.com/useragent">UserAgent工具</a></li>
+<li id="menu-item-1066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1066"><a href="https://www.wujiit.com/md5sha">MD5和SHA加密</a></li>
+<li id="menu-item-1067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1067"><a href="https://www.wujiit.com/sha">SHA哈希值验证</a></li>
+<li id="menu-item-1722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1722"><a href="https://www.wujiit.com/unicode">Unicode编解码</a></li>
+<li id="menu-item-961" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-961"><a href="https://www.wujiit.com/base64">Base64编码解码</a></li>
+<li id="menu-item-1131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1131"><a href="https://www.wujiit.com/emoji">Emoji表情参考手册</a></li>
+<li id="menu-item-1128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1128"><a href="https://www.wujiit.com/rgbhex">RGB和HEX颜色转换</a></li>
+<li id="menu-item-1313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1313"><a href="https://www.wujiit.com/imgbase">图片转Base64编码</a></li>
+<li id="menu-item-1070" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1070"><a href="https://www.wujiit.com/base64img">Base64编码图片预览</a></li>
+</ul>
+</li>
+<li id="menu-item-1367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1367"><a href="https://www.wujiit.com/shuju">数据</a>
+<ul class="sub-menu">
+<li id="menu-item-1561" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1561"><a href="https://www.wujiit.com/router">路由器配置大全</a></li>
+<li id="menu-item-1599" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1599"><a href="https://www.wujiit.com/zhongyaocai">重庆农产品行情</a></li>
+<li id="menu-item-1376" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1376"><a href="https://www.wujiit.com/weijin">广告法词汇查询</a></li>
+<li id="menu-item-1606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1606"><a href="https://www.wujiit.com/kpl">KPL电竞选手资料</a></li>
+<li id="menu-item-1368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1368"><a href="https://www.wujiit.com/snake">抗蛇毒血清医院查询</a></li>
+<li id="menu-item-1729" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1729"><a href="https://www.wujiit.com/guishudi">手机号码归属地查询</a></li>
+<li id="menu-item-1836" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1836"><a href="https://www.wujiit.com/changbeiyao">家庭常备药品清单</a></li>
+<li id="menu-item-1560" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1560"><a href="https://www.wujiit.com/yiyuan">三甲医院推荐</a></li>
+<li id="menu-item-1374" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1374"><a href="https://www.wujiit.com/ps">Ps快捷键</a></li>
+<li id="menu-item-1373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1373"><a href="https://www.wujiit.com/ppt">PPT快捷键</a></li>
+<li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1375"><a href="https://www.wujiit.com/excel">Excel快捷键</a></li>
+<li id="menu-item-1372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1372"><a href="https://www.wujiit.com/word">Word快捷键</a></li>
+<li id="menu-item-1369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1369"><a href="https://www.wujiit.com/wps">WPS表格快捷键</a></li>
+<li id="menu-item-1371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1371"><a href="https://www.wujiit.com/wpstext">WPS文字快捷键</a></li>
+<li id="menu-item-1370" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1370"><a href="https://www.wujiit.com/wpsyanshi">WPS演示快捷键</a></li>
+</ul>
+</li>
+<li id="menu-item-1322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1322"><a href="https://www.wujiit.com/zhan">站长</a>
+<ul class="sub-menu">
+<li id="menu-item-1323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1323"><a href="https://www.wujiit.com/wall">网站安全拦截查询</a></li>
+<li id="menu-item-1324" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1324"><a href="https://www.wujiit.com/yidong">移动域名检测</a></li>
+<li id="menu-item-1331" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1331"><a href="https://www.wujiit.com/ipfancha">IP反查域名</a></li>
+<li id="menu-item-1330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1330"><a href="https://www.wujiit.com/ssl">SSL证书检测</a></li>
+<li id="menu-item-1327" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1327"><a href="https://www.wujiit.com/ipv6">网站IPv6检测</a></li>
+<li id="menu-item-1329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1329"><a href="https://www.wujiit.com/whois">域名whois查询</a></li>
+<li id="menu-item-1332" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1332"><a href="https://www.wujiit.com/whoishistory">whois历史查询</a></li>
+<li id="menu-item-1363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"><a href="https://www.wujiit.com/http">HTTP状态码</a></li>
+<li id="menu-item-1362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"><a href="https://www.wujiit.com/baidurank">百度权重查询</a></li>
+<li id="menu-item-1548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548"><a href="https://www.wujiit.com/yunping">云服务器测速</a></li>
+<li id="menu-item-1635" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1635"><a href="https://www.wujiit.com/robots">Robots.txt生成器</a></li>
+<li id="menu-item-1326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1326"><a href="https://www.wujiit.com/port">域名端口查询</a></li>
+<li id="menu-item-1328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1328"><a href="https://www.wujiit.com/icp">域名icp备案查询</a></li>
+<li id="menu-item-1325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1325"><a href="https://www.wujiit.com/dns">域名DNS解析查询</a></li>
+</ul>
+</li>
+<li id="menu-item-1357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1357"><a href="https://www.wujiit.com/webtools">实用</a>
+<ul class="sub-menu">
+<li id="menu-item-1490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1490"><a href="https://www.wujiit.com/ai-tv"><b style="color:#ce0ff1">AI影视剧推荐</b></a></li>
+<li id="menu-item-1381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1381"><a href="https://www.wujiit.com/imgocr"><b style="color:#a403ff">图像文字识别</b></a></li>
+<li id="menu-item-1512" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1512"><a href="https://www.wujiit.com/ai-yaoyan"><b style="color:#ff5f33">AI谣言粉碎机</b></a></li>
+<li id="menu-item-1380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1380"><a href="https://www.wujiit.com/food-ai"><b style="color:#1db954">食品营养成分识别</b></a></li>
+<li id="menu-item-1995" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1995"><a href="https://www.wujiit.com/express"><b style="color:#007bff">快递单号实时查询</b></a></li>
+<li id="menu-item-1601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1601"><a href="https://www.wujiit.com/mudidi"><b style="color:#ff5f33">随机旅游目的地</b></a></li>
+<li id="menu-item-1596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1596"><a href="https://www.wujiit.com/travel">AI旅游攻略</a></li>
+<li id="menu-item-1718" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1718"><a href="https://www.wujiit.com/nianling"><b style="color:#1db954">人脸年龄模拟</b></a></li>
+<li id="menu-item-1343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1343"><a href="https://www.wujiit.com/qrjiexi">二维码解析</a></li>
+<li id="menu-item-1344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1344"><a href="https://www.wujiit.com/qrma">二维码生成</a></li>
+<li id="menu-item-1340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1340"><a href="https://www.wujiit.com/mima"><b style="color:#ff5f33">随机密码生成</b></a></li>
+<li id="menu-item-1748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1748"><a href="https://www.wujiit.com/tuming"><b style="color:#1db954">图片批量重命名</b></a></li>
+<li id="menu-item-1345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1345"><a href="https://www.wujiit.com/led">LED滚动屏幕</a></li>
+<li id="menu-item-1388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1388"><a href="https://www.wujiit.com/qinqi">亲戚关系计算</a></li>
+<li id="menu-item-1341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1341"><a href="https://www.wujiit.com/date">日期差计算器</a></li>
+<li id="menu-item-1342" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1342"><a href="https://www.wujiit.com/byte">字节单位换算</a></li>
+<li id="menu-item-1346" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1346"><a href="https://www.wujiit.com/fuhao">特殊符号大全</a></li>
+<li id="menu-item-1347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1347"><a href="https://www.wujiit.com/webp"><b style="color:#ce0ff1">WebP图片下载</b></a></li>
+<li id="menu-item-1546" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1546"><a href="https://www.wujiit.com/soft"><b style="color:#007bff">Windows系统下载</b></a></li>
+<li id="menu-item-1348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1348"><a href="https://www.wujiit.com/audio">全网热点资讯</a></li>
+</ul>
+</li>
+<li id="menu-item-1359" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1359"><a href="https://www.wujiit.com/yule">娱乐</a>
+<ul class="sub-menu">
+<li id="menu-item-858" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-858"><a href="https://www.wujiit.com/gif">gif表情制作</a></li>
+<li id="menu-item-1723" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1719 current_page_item menu-item-1723"><a href="https://www.wujiit.com/giffenjie">gif图片分解</a></li>
+<li id="menu-item-987" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-987"><a href="https://www.wujiit.com/togif">gif动图制作</a></li>
+<li id="menu-item-1333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333"><a href="https://www.wujiit.com/bilibili"><b style="color:#1db954">B站视频封面</b></a></li>
+<li id="menu-item-1662" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1662"><a href="https://www.wujiit.com/wangming"><b style="color:#007bff">AI网名生成器</b></a></li>
+<li id="menu-item-1597" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1597"><a href="https://www.wujiit.com/aitaici"><b style="color:#ff5f33">AI经典台词出处</b></a></li>
+<li id="menu-item-1382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1382"><a href="https://www.wujiit.com/vgif">视频转gif</a></li>
+<li id="menu-item-1334" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1334"><a href="https://www.wujiit.com/xingzuo">星座配对</a></li>
+<li id="menu-item-1335" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1335"><a href="https://www.wujiit.com/pipei">星座运势</a></li>
+<li id="menu-item-1338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1338"><a href="https://www.wujiit.com/ziweidoushu">紫微斗数</a></li>
+<li id="menu-item-1336" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1336"><a href="https://www.wujiit.com/mbti"><b style="color:#007bff">MBTI人格测试</b></a></li>
+<li id="menu-item-1350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1350"><a href="https://www.wujiit.com/caihongpi">彩虹屁</a></li>
+<li id="menu-item-1352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1352"><a href="https://www.wujiit.com/tuwei">土味情话</a></li>
+<li id="menu-item-1353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://www.wujiit.com/guyan">励志古言</a></li>
+<li id="menu-item-1354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1354"><a href="https://www.wujiit.com/taici">经典台词</a></li>
+<li id="menu-item-1351" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1351"><a href="https://www.wujiit.com/pyq">朋友圈文案</a></li>
+<li id="menu-item-1337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1337"><a href="https://www.wujiit.com/sudu"><b style="color:#1db954">反应速度测试</b></a></li>
+<li id="menu-item-1485" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1485"><a href="https://www.wujiit.com/lei">经典扫雷</a></li>
+<li id="menu-item-1486" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1486"><a href="https://www.wujiit.com/shudu">数独游戏</a></li>
+<li id="menu-item-1487" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1487"><a href="https://www.wujiit.com/renzhe">忍者闯关</a></li>
+<li id="menu-item-1488" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1488"><a href="https://www.wujiit.com/3dmalu">3D过马路</a></li>
+<li id="menu-item-1484" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1484"><a href="https://www.wujiit.com/shuerte">舒尔特方格</a></li>
+<li id="menu-item-1502" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1502"><a href="https://www.wujiit.com/wangyiyun">网易云音乐封面</a></li>
+<li id="menu-item-1349" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1349"><a href="https://www.wujiit.com/bizhi">每日壁纸推荐</a></li>
+</ul>
+</li>
+<li id="menu-item-1513" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1513"><a href="https://www.wujiit.com/top">排行</a>
+<ul class="sub-menu">
+<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1598"><a href="https://www.wujiit.com/tiantitu">硬件天梯图</a></li>
+<li id="menu-item-1515" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1515"><a href="https://www.wujiit.com/top">热门排行榜</a></li>
+<li id="menu-item-1516" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1516"><a href="https://www.wujiit.com/nav">优选网站导航</a></li>
+</ul>
+</li>
+</ul>                </nav>
+
+                <div class="header-actions">
+                                            <div class="header-search">
+                            <button type="button" class="search-toggle" id="search-toggle" title="搜索">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            </button>
+                        </div>
+                                        
+                    
+                                            <div class="header-auth" id="header-auth-wrapper">
+                            <div class="header-login" id="header-login-area" style="">
+                                <button type="button" class="header-login-btn" id="header-login-toggle" title="登录">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    <span>登录</span>
+                                </button>
+                            </div>
+                            <div class="header-user-menu" id="header-user-area" style="display:none;">
+                                <a href="https://www.wujiit.com/user" class="header-user-btn" id="header-user-toggle" title="个人中心">
+                                    <img id="header-user-avatar" src="https://smimg.xiaobansc.com/xiaobanxztp/2024/02/20240229170925989.png" alt="" width="32" height="32" />
+                                </a>
+                                <div class="user-dropdown" id="user-dropdown">
+                                    <div class="dropdown-header">
+                                        <img id="dropdown-user-avatar" src="https://smimg.xiaobansc.com/xiaobanxztp/2024/02/20240229170925989.png" alt="" width="48" height="48" />
+                                        <div class="dropdown-user-info">
+                                            <strong id="dropdown-user-name"></strong>
+                                            <span id="dropdown-user-email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="https://www.wujiit.com/user" id="dropdown-account-link">
+                                        个人中心                                    </a>
+                                    <a href="https://www.wujiit.com/wp-admin/" id="dropdown-admin-link" style="display:none;">
+                                        管理后台                                    </a>
+                                    
+                                            <a href="https://www.wujiit.com/qls-shop-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            商城中心        </a>
+        
+                                    <div class="dropdown-divider"></div>
+                                    <a href="https://www.wujiit.com/wp-login.php?action=logout&#038;redirect_to=https%3A%2F%2Fwww.wujiit.com&#038;_wpnonce=881cbd9f5b" class="logout-link" id="dropdown-logout-link">
+                                        退出登录                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        (function () {
+                            var authWrapper = document.getElementById('header-auth-wrapper');
+                            if (!authWrapper) return;
+                            var loginArea = document.getElementById('header-login-area');
+                            var userArea = document.getElementById('header-user-area');
+                            if (!loginArea || !userArea) return;
+                            var cookies = document.cookie || '';
+                            if (cookies.indexOf('wordpress_logged_in_') !== -1) {
+                                loginArea.style.display = 'none';
+                                userArea.style.display = '';
+                            }
+                        })();
+                        </script>
+                    
+
+                    
+                                            <div class="header-darkmode">
+                            <button type="button" class="darkmode-toggle" id="darkmode-toggle" title="切换暗黑模式">
+                                <span class="icon-sun" style="font-size: 18px; line-height: 1;">☀️</span>
+                                <span class="icon-moon" style="font-size: 18px; line-height: 1; display:none">🌙</span>
+                            </button>
+                        </div>
+                    
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="菜单">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-overlay-inner">
+                <form role="search" method="get" class="search-form" action="https://www.wujiit.com/">
+                    <input type="search" name="s" placeholder="请输入关键词搜索..." value="" />
+                    <button type="submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    </button>
+                </form>
+                <button type="button" class="search-close" id="search-close">&times;</button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                                            <img src="https://aiimg.qiyucloud.com/wp-content/uploads/2025/03/20250326025910641.jpg" alt="灵简AI" />
+                                    </div>
+                <button class="mobile-menu-close" id="mobile-menu-close" aria-label="关闭菜单">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <ul id="mobile-nav-menu" class="menu"><li id="menu-item-2779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2779"><a href="https://www.wujiit.com/">首页</a></li>
+</ul>            </nav>
+                        <div class="mobile-menu-footer">
+                            </div>
+        </div>
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    </header>
+
+    <main id="primary" class="site-main">
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GIF分解器</title>
+  <style>
+    :root{
+      --giffj-bg:#0f1724;
+      --giffj-surface:#0b1220;
+      --giffj-accent:#7c5cff;
+      --giffj-accent-2:#26d0ce;
+      --giffj-card:#0f1728;
+      --giffj-text:#e6eef8;
+      --giffj-muted:#98a0b3;
+      --giffj-radius:14px;
+    }
+
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,var(--giffj-bg),#071024 60%); color:var(--giffj-text);}
+
+    .giffj_container{max-width:980px;margin:32px auto;padding:20px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+    .giffj_header{display:flex;align-items:center;gap:16px;margin-top:25px;}
+    .giffj_title{font-size:22px;font-weight:700;letter-spacing:-0.3px}
+    .giffj_sub{color:var(--giffj-muted);font-size:13px}
+
+    /* 上传 */
+    .giffj_uploader{margin-top:18px;display:grid;grid-template-columns:1fr 360px;gap:18px}
+
+    .giffj_card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--giffj-radius);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);}    
+
+    .giffj_drop{min-height:220px;border:2px dashed rgba(124,92,255,0.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;border-radius:12px;transition:all .18s}
+    .giffj_drop.giffj_dragover{background:linear-gradient(180deg, rgba(124,92,255,0.04), rgba(38,208,206,0.03));transform:translateY(-4px);border-color:rgba(38,208,206,0.28)}
+    .giffj_icon{width:56px;height:56px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--giffj-accent),var(--giffj-accent-2));box-shadow:0 10px 25px rgba(124,92,255,0.12);font-weight:700}
+    .giffj_hint{color:var(--giffj-muted);font-size:13px}
+
+    .giffj_preview{display:flex;flex-direction:column;gap:10px}
+    .giffj_preview img{max-width:100%;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+
+    .giffj_actions{display:flex;gap:10px;flex-wrap:wrap}
+    .giffj_btn{background:linear-gradient(90deg,var(--giffj-accent),var(--giffj-accent-2));color:#02121a;padding:10px 14px;border-radius:12px;border:none;font-weight:600;cursor:pointer}
+    .giffj_btn.secondary{background:transparent;color:var(--giffj-text);border:1px solid rgba(255,255,255,0.06)}
+    .giffj_btn:disabled{opacity:.45;cursor:not-allowed}
+
+    /* 结果 */
+    .giffj_results{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .giffj_frame{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:8px;border-radius:10px;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .giffj_frame img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .giffj_frame .giffj_meta{font-size:12px;color:var(--giffj-muted)}
+
+    .giffj_footer{margin-top:22px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));display:flex;flex-direction:column;gap:8px}
+
+    /* 手机 */
+    @media (max-width:880px){
+      .giffj_uploader{grid-template-columns:1fr}
+      .giffj_results{grid-template-columns:repeat(2,1fr)}
+      .giffj_frame img{height:120px}
+    }
+    @media (max-width:480px){
+      .giffj_results{grid-template-columns:1fr}
+    }
+  </style>
+<style id="qimage_theme_inline">
+/* qimage_theme_start */
+body.qimage_page,
+.qimage_page {
+    --qimage_bg: #eef6ff;
+    --qimage_bg_soft: rgba(14, 165, 233, 0.14);
+    --qimage_surface: #ffffff;
+    --qimage_surface_alt: #f6fbff;
+    --qimage_text: #132038;
+    --qimage_text_muted: #5f6f86;
+    --qimage_border: #d6e1f2;
+    --qimage_primary: #1d7df2;
+    --qimage_primary_hover: #1468cb;
+    --qimage_shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+    --qimage_shadow_soft: 0 10px 24px rgba(29, 125, 242, 0.16);
+    margin: 0 !important;
+    padding-top: 0 !important;
+    min-height: 100vh;
+    color: var(--qimage_text);
+    background:
+        radial-gradient(1200px 480px at 8% -8%, var(--qimage_bg_soft), transparent 62%),
+        radial-gradient(900px 360px at 92% -18%, rgba(45, 212, 191, 0.12), transparent 64%),
+        linear-gradient(180deg, #f8fbff 0%, var(--qimage_bg) 64%, #e9f1fb 100%);
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+}
+
+html.dark-mode body.qimage_page,
+html.dark-mode .qimage_page,
+body.dark-mode.qimage_page,
+body.dark-mode .qimage_page,
+html[data-theme="dark"] body.qimage_page,
+html[data-theme="dark"] .qimage_page,
+body.qimage_page[data-theme="dark"],
+.qimage_page[data-theme="dark"] {
+    --qimage_bg: #0a1322;
+    --qimage_bg_soft: rgba(59, 130, 246, 0.20);
+    --qimage_surface: #101d32;
+    --qimage_surface_alt: #162741;
+    --qimage_text: #e5edf8;
+    --qimage_text_muted: #98aac4;
+    --qimage_border: #263c5f;
+    --qimage_primary: #60a5fa;
+    --qimage_primary_hover: #8dc4ff;
+    --qimage_shadow: 0 16px 38px rgba(2, 6, 23, 0.50);
+    --qimage_shadow_soft: 0 12px 28px rgba(37, 99, 235, 0.34);
+    background:
+        radial-gradient(1100px 440px at 6% -8%, var(--qimage_bg_soft), transparent 58%),
+        radial-gradient(900px 400px at 94% -18%, rgba(45, 212, 191, 0.14), transparent 66%),
+        linear-gradient(180deg, #09121f 0%, #0b1425 58%, #091321 100%);
+}
+
+body.qimage_page *,
+.qimage_page * {
+    box-sizing: border-box;
+}
+
+body.qimage_page :where([class*="_header"], header):first-child,
+.qimage_page :where([class*="_header"], header):first-child,
+body.qimage_page > :where([class*="_container"], [class*="_main"], [class*="_root"], main, section):first-child,
+.qimage_page > :where([class*="_container"], [class*="_main"], [class*="_root"], main, section):first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+body.qimage_page :where(h1, h2, h3, h4, h5, h6, [class*="_title"]),
+.qimage_page :where(h1, h2, h3, h4, h5, h6, [class*="_title"]) {
+    color: var(--qimage_text);
+}
+
+body.qimage_page :where([class*="_subtitle"], [class*="_description"], [class*="_hint"], [class*="_note"], [class*="_footer"], p, small, label, [class*="_label"]),
+.qimage_page :where([class*="_subtitle"], [class*="_description"], [class*="_hint"], [class*="_note"], [class*="_footer"], p, small, label, [class*="_label"]) {
+    color: var(--qimage_text_muted);
+}
+
+body.qimage_page :where(input, textarea, select),
+.qimage_page :where(input, textarea, select) {
+    border: 1px solid var(--qimage_border);
+    background: var(--qimage_surface) !important;
+    color: var(--qimage_text) !important;
+    border-radius: 12px;
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+body.qimage_page :where(input, textarea, select)::placeholder,
+.qimage_page :where(input, textarea, select)::placeholder {
+    color: color-mix(in srgb, var(--qimage_text_muted) 86%, transparent);
+}
+
+body.qimage_page :where(input, textarea, select):focus,
+.qimage_page :where(input, textarea, select):focus {
+    border-color: var(--qimage_primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--qimage_primary) 22%, transparent);
+    outline: none;
+}
+
+body.qimage_page :where(button, [class*="_btn"], [class*="_button"]),
+.qimage_page :where(button, [class*="_btn"], [class*="_button"]) {
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--qimage_primary) 42%, var(--qimage_border));
+    background: color-mix(in srgb, var(--qimage_primary) 84%, #ffffff 16%);
+    color: #ffffff;
+    box-shadow: var(--qimage_shadow_soft);
+    transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+body.qimage_page :where(button, [class*="_btn"], [class*="_button"]):hover,
+.qimage_page :where(button, [class*="_btn"], [class*="_button"]):hover {
+    background: var(--qimage_primary_hover);
+    transform: translateY(-1px);
+}
+
+body.qimage_page :where(button, [class*="_btn"], [class*="_button"]):focus-visible,
+.qimage_page :where(button, [class*="_btn"], [class*="_button"]):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--qimage_primary) 30%, transparent), var(--qimage_shadow_soft);
+}
+
+body.qimage_page :where([class*="_card"], [class*="_panel"], [class*="_result"], [class*="_preview"], [class*="_section"], [class*="_content"], [class*="_modal"], [class*="_drop"], [class*="_upload"]),
+.qimage_page :where([class*="_card"], [class*="_panel"], [class*="_result"], [class*="_preview"], [class*="_section"], [class*="_content"], [class*="_modal"], [class*="_drop"], [class*="_upload"]) {
+    background: color-mix(in srgb, var(--qimage_surface) 92%, var(--qimage_surface_alt));
+    border-color: var(--qimage_border);
+    box-shadow: var(--qimage_shadow);
+}
+
+body.qimage_page :where(img, canvas, video),
+.qimage_page :where(img, canvas, video) {
+    border-radius: 10px;
+}
+
+body.qimage_page :where(a),
+.qimage_page :where(a) {
+    color: var(--qimage_primary);
+}
+
+body.qimage_page :where(a:hover),
+.qimage_page :where(a:hover) {
+    color: var(--qimage_primary_hover);
+}
+/* qimage_theme_end */
+</style>
+
+</head>
+<body class="qimage_page">
+  <div class="giffj_container">
+    <header class="giffj_header">
+      <div class="giffj_icon">GIF</div>
+      <div>
+        <div class="giffj_title">GIF 分解器</div>
+        <div class="giffj_sub">上传你的 GIF图片，快速把每一帧分解为JPG图片，支持批量下载分解之后的图片。</div>
+      </div>
+    </header>
+
+    <main class="giffj_uploader">
+      <section class="giffj_card">
+        <div id="giffj_drop" class="giffj_drop" tabindex="0">
+          <div style="text-align:center">
+            <strong>拖拽 GIF 到这里</strong>
+            <div class="giffj_hint">或点击选择文件（仅支持 .gif）</div>
+          </div>
+          <input id="giffj_file" type="file" accept="image/gif" style="display:none">
+        </div>
+
+        <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+          <div class="giffj_actions">
+            <button id="giffj_btn_select" class="giffj_btn secondary">选择 GIF</button>
+            <button id="giffj_btn_start" class="giffj_btn" disabled>开始分解</button>
+            <button id="giffj_btn_download" class="giffj_btn secondary" disabled>批量下载（ZIP）</button>
+          </div>
+          <div style="color:var(--giffj-muted);font-size:13px">文件不会上传到服务器 — 全部在浏览器本地处理。</div>
+        </div>
+      </section>
+
+      <aside class="giffj_card giffj_preview" id="giffj_preview_panel">
+        <div style="font-weight:600">预览</div>
+        <div id="giffj_preview_area" style="min-height:120px;display:grid;place-items:center">
+          <div class="giffj_hint">当前没有 GIF</div>
+        </div>
+        <div style="margin-top:8px;color:var(--giffj-muted);font-size:13px">帧数将显示在分解结果中。</div>
+      </aside>
+    </main>
+
+    <section style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">分解结果</div>
+        <div style="color:var(--giffj-muted);font-size:13px">按需点击单张图片可下载</div>
+      </div>
+      <div id="giffj_results" class="giffj_results" style="margin-top:12px">
+        <!-- frames go here -->
+      </div>
+    </section>
+
+    <section class="giffj_footer">
+      <div style="font-weight:700">使用说明</div>
+      <div class="giffj_sub">1. 将 GIF 拖进上传区域，或点击“选择 GIF”。 2. 预览确认后点击“开始分解”。 3. 分解完成后可单张下载或点击“批量下载（ZIP）”。</div>
+      <div class="giffj_sub">注：该功能仅支持谷歌、Edge、Safari浏览器最新版。若浏览器不支持，无法使用。 </div>
+    </section>
+  </div>
+
+  <!-- ZIP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <script>
+    const drop = document.getElementById('giffj_drop');
+    const fileInput = document.getElementById('giffj_file');
+    const btnSelect = document.getElementById('giffj_btn_select');
+    const btnStart = document.getElementById('giffj_btn_start');
+    const btnDownload = document.getElementById('giffj_btn_download');
+    const previewArea = document.getElementById('giffj_preview_area');
+    const results = document.getElementById('giffj_results');
+
+    let currentGif = null;
+
+    function resetState(){
+      // 撤销所有已创建的对象 URL，以避免内存泄漏
+      if(currentGif && currentGif.frames){
+        currentGif.frames.forEach(f=>{ try{ URL.revokeObjectURL(f.url); }catch(e){} });
+      }
+      currentGif = null;
+      previewArea.innerHTML = '<div class="giffj_hint">当前没有 GIF</div>';
+      results.innerHTML = '';
+      btnStart.disabled = true;
+      btnDownload.disabled = true;
+    }
+
+    resetState();
+
+    ;['dragenter','dragover'].forEach(e => drop.addEventListener(e, ev => {ev.preventDefault();drop.classList.add('giffj_dragover');}))
+    ;['dragleave','drop'].forEach(e => drop.addEventListener(e, ev => {ev.preventDefault();drop.classList.remove('giffj_dragover');}))
+
+    drop.addEventListener('drop', ev => {
+      const f = ev.dataTransfer.files && ev.dataTransfer.files[0];
+      if(f) handleFile(f);
+    });
+
+    drop.addEventListener('click', ()=> fileInput.click());
+    btnSelect.addEventListener('click', ()=> fileInput.click());
+    fileInput.addEventListener('change', e => { if(e.target.files[0]) handleFile(e.target.files[0]); });
+
+    async function handleFile(file){
+      if(!file.type.includes('gif')){ alert('请上传 GIF 文件'); return; }
+      const ab = await file.arrayBuffer();
+
+      if(currentGif && currentGif.frames){
+        currentGif.frames.forEach(f=>{ try{ URL.revokeObjectURL(f.url); }catch(e){} });
+      }
+      currentGif = { blob: file, arrayBuffer: ab, frames: [] };
+
+      // 预览
+      previewArea.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.alt = 'gif';
+      img.style.maxHeight = '260px';
+      previewArea.appendChild(img);
+
+      btnStart.disabled = false;
+      results.innerHTML = '';
+      btnDownload.disabled = true;
+    }
+
+    // 使用 ImageDecoder 进行分解
+    async function decomposeWithImageDecoder(){
+      try{
+        if(!window.ImageDecoder){
+          throw new Error('浏览器不支持 ImageDecoder，请使用最新版 Chrome 或 Edge 浏览器');
+        }
+
+        // 优先使用 Uint8Array (BufferSource)
+        let initData;
+        try{
+          initData = new Uint8Array(currentGif.arrayBuffer);
+        }catch(e){
+          // 如果 Uint8Array 构造失败，则回退到原始 ArrayBuffer
+          initData = currentGif.arrayBuffer;
+        }
+
+        let decoder;
+        try{
+          decoder = new ImageDecoder({data: initData, type: 'image/gif'});
+        }catch(err){
+          // 尝试传递 Blob
+          try{
+            const blob = new Blob([currentGif.arrayBuffer], {type: 'image/gif'});
+            decoder = new ImageDecoder({data: blob, type: 'image/gif'});
+          }catch(err2){
+            throw err;
+          }
+        }
+
+        // 等待曲目元数据
+        await decoder.tracks.ready;
+
+        // 尝试从轨道元数据中读取帧数
+        let frameCount;
+        try{
+          const track = decoder.tracks.selectedTrack || decoder.tracks[0];
+          if(track && typeof track.frameCount === 'number') frameCount = track.frameCount;
+        }catch(e){ /* ignore */ }
+
+        let index = 0;
+        const MAX_FRAMES = 2000;
+
+        while(true){
+          if(typeof frameCount === 'number' && index >= frameCount) break;
+          if(index >= MAX_FRAMES) break;
+          try{
+            const result = await decoder.decode({frameIndex: index});
+            const imageLike = result.image;
+
+            // 绘制到画布
+            let bitmap = imageLike;
+            let createdBitmap = false;
+            if(typeof VideoFrame !== 'undefined' && imageLike instanceof VideoFrame){
+              bitmap = await createImageBitmap(imageLike);
+              createdBitmap = true;
+            }else if(!(typeof ImageBitmap !== 'undefined' && imageLike instanceof ImageBitmap)){
+              bitmap = await createImageBitmap(imageLike);
+              createdBitmap = true;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = bitmap.width;
+            canvas.height = bitmap.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(bitmap,0,0);
+            const blobJpg = await new Promise(res => canvas.toBlob(res,'image/jpeg',0.92));
+            const url = URL.createObjectURL(blobJpg);
+            currentGif.frames.push({blob: blobJpg, url, index});
+
+            // 关闭资源
+            try{ if(imageLike && typeof imageLike.close === 'function') imageLike.close(); }catch(e){}
+            try{ if(createdBitmap && bitmap && typeof bitmap.close === 'function') bitmap.close(); }catch(e){}
+
+            index++;
+          }catch(err){
+            // 解码错误或超出范围的帧索引时停止
+            break;
+          }
+        }
+
+        try{ if(decoder && typeof decoder.close === 'function') decoder.close(); }catch(e){}
+
+        if(currentGif.frames.length===0) throw new Error('没有解析出任何帧');
+        return currentGif.frames;
+      }catch(err){
+        console.error('ImageDecoder 解析失败：', err);
+        throw err;
+      }
+    }
+
+    async function doDecompose(){
+      btnStart.disabled = true;
+      btnStart.textContent = '处理中...';
+      results.innerHTML = '';
+      currentGif.frames = [];
+      try{
+        await decomposeWithImageDecoder();
+        renderResults();
+        btnDownload.disabled = false;
+      }catch(err){
+        alert('分解失败：'+err.message+'。请更换 Chrome、Edge 浏览器最新版本再使用。');
+        console.error(err);
+      }finally{
+        btnStart.disabled = false;
+        btnStart.textContent = '开始分解';
+      }
+    }
+
+    function renderResults(){
+      results.innerHTML = '';
+      currentGif.frames.forEach((f, i) => {
+        const box = document.createElement('div'); box.className = 'giffj_frame';
+        const im = document.createElement('img'); im.src = f.url; im.alt = `frame-${i}`;
+        const meta = document.createElement('div'); meta.className='giffj_meta'; meta.textContent = `帧 ${i+1}`;
+        const dl = document.createElement('button'); dl.className='giffj_btn secondary'; dl.textContent='下载';
+        dl.addEventListener('click', ()=>{
+          const a = document.createElement('a'); a.href = f.url; a.download = `frame-${String(i+1).padStart(3,'0')}.jpg`; document.body.appendChild(a); a.click(); a.remove();
+        });
+        box.appendChild(im); box.appendChild(meta); box.appendChild(dl);
+        results.appendChild(box);
+      });
+    }
+
+    btnStart.addEventListener('click', async ()=>{
+      if(!currentGif) return;
+      await doDecompose();
+    });
+
+    btnDownload.addEventListener('click', async ()=>{
+      if(!currentGif || !currentGif.frames || currentGif.frames.length===0) return;
+      btnDownload.disabled = true; btnDownload.textContent='生成 ZIP...';
+      try{
+        if(typeof JSZip === 'undefined') throw new Error('JSZip 未加载');
+        const zip = new JSZip();
+        const folder = zip.folder('frames');
+        currentGif.frames.forEach((f,i)=>{
+          folder.file(`frame-${String(i+1).padStart(3,'0')}.jpg`, f.blob);
+        });
+        const content = await zip.generateAsync({type:'blob'});
+        saveAs(content, 'gif-frames.zip');
+      }catch(err){
+        alert('打包失败：'+err.message);
+      }finally{
+        btnDownload.disabled = false; btnDownload.textContent='批量下载（ZIP）';
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+    </main><!-- #primary -->
+
+    
+    <footer id="colophon" class="site-footer" style="color: #ffffff;">
+        <div class="footer-widgets" style="background-color: ; position: relative; overflow: hidden;">
+                        <div class="container" style="position: relative; z-index: 1;">
+                <div class="footer-widgets-grid">
+                    <div class="footer-widget-area">
+                        <h3>关于我们</h3>
+                        <div style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                            灵简AI <br>
+一个多功能的AI工具箱                        </div>
+                    </div>
+                    
+                    <div class="footer-widget-area">
+                        <h3>服务说明</h3>
+                        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;"><li style="margin-bottom: 8px;"><a href="https://www.wujiit.com/terms" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">服务条款</a></li><li style="margin-bottom: 8px;"><a href="https://www.wujiit.com/privacypolicy" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">隐私政策</a></li><li style="margin-bottom: 8px;"><a href="https://www.wujiit.com/suanfa" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">服务供应</a></li><li style="margin-bottom: 8px;"><a href="https://www.wujiit.com/copyright" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">版权声明</a></li><li style="margin-bottom: 8px;"><a href="https://www.wujiit.com/changelog" style="color: rgba(255,255,255,0.7); text-decoration: none;" target="_blank">模型更新</a></li></ul>                    </div>
+                    
+                    <div class="footer-widget-area">
+                        <h3>联系方式</h3>
+                                                <div class="footer-contact-info">
+                                                                                        <p class="footer-contact-item">
+                                    <span class="footer-contact-icon">📧</span>iticu@qq.com                                </p>
+                                                                                                                    <p class="footer-contact-item">
+                                    <span class="footer-contact-icon">🕐</span>周一至周五 9:00 - 22:00                                </p>
+                                                    </div>
+                                                    <div class="footer-contact-widgets">
+                                <div id="custom_html-5" class="widget_text footer-contact-widget widget_custom_html"><div class="textwidget custom-html-widget"><a href="https://www.wujiit.com/lianxi">联系方式</a><br>
+<a href="https://www.wujiit.com/user?action=ticket">反馈建议</a><br>
+<a href="https://www.wujiit.com/xinyuandan"><span style="color:#FF3333">功能心愿单</span></a></div></div>                            </div>
+                                            </div>
+                    
+                    <div class="footer-widget-area">
+                        <h3>关注我们</h3>
+                                                <div class="qrcode-grid" style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                                                            <div class="qrcode-item" style="text-align: center;">
+                                    <img src="https://aiimg.qiyucloud.com/wp-content/uploads/2026/01/20260119181254834.png" alt="微信二维码" style="width: 110px; height: 110px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); object-fit: cover;" />
+                                                                            <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 8px; max-width: 110px;">客服微信号</p>
+                                                                    </div>
+                                                                                        <div class="qrcode-item" style="text-align: center;">
+                                    <img src="https://smimg.xiaobansc.com/xiaobanxztp/2024/02/20240229131240826.jpg" alt="抖音二维码" style="width: 110px; height: 110px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); object-fit: cover;" />
+                                                                            <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 8px; max-width: 110px;">微信公众号</p>
+                                                                    </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom" style="background-color: ;">
+            <div class="container">
+                <div class="footer-bottom-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 0;">
+                    <div class="footer-copyright">
+                        <p class="copyright">© www.wujiit.com 灵简AI<br>
+重庆静下来网络科技有限责任公司版权所有<br>
+<a href="https://www.12377.cn/" target="_blank" rel="external nofollow noopener noreferrer">中国互联网违法和不良信息举报中心</a><br>                    </div>
+                    
+                    <div class="footer-filing">
+                        <div class="footer-filing" style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;"><a href="https://beian.miit.gov.cn/" target="_blank" rel="external nofollow noopener noreferrer" style="color: rgba(255,255,255,0.6);">渝ICP备17005756号-2﻿</a><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50024002000029" target="_blank" rel="external nofollow noopener noreferrer" style="color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px;"><img src="https://aiimg.qiyucloud.com/wp-content/uploads/2025/07/23090928920.png" alt="" style="width: 16px; height: 16px;" />渝公网安备50024002000029号</a></div>                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- #page -->
+
+
+
+
+    <script>
+    function dsSearchRedirect(form) {
+        var input = form.querySelector('input[name="s"]');
+        if (input && input.value.trim() !== '') {
+            window.location.href = 'https://www.wujiit.com/search/' + encodeURIComponent(input.value.trim()) + '/';
+            return false;
+        }
+        return false;
+    }
+    </script>
+    <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/qiling-child/*","/wp-content/themes/qiling/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div id="xb-adcustom-footer-embed-21" style="width:100%;display:flex;justify-content:center;align-items:center;padding:12px 0;box-sizing:border-box;"><div class="xb-adcustom-embed-container" style="width: 300px; height: 250px;"><div class="xb-adcustom-embed-content" onclick="xbAdCustomTrackClick(21)" id="xb-adcustom-embed-21"><a href="https://www.wujiit.com/xinkejiare" target="_blank"><img src="https://aiimg.qiyucloud.com/wp-content/uploads/2025/12/20251226123120187.jpg"></a></div></div></div><script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            try {
+                var wrapper = document.getElementById("xb-adcustom-footer-embed-21");
+                var footerEl = document.querySelector("footer");
+                if (wrapper && footerEl && footerEl.parentNode) {
+                    footerEl.parentNode.insertBefore(wrapper, footerEl);
+                }
+            } catch(e) {
+                console.error("XB AdCustom move before footer failed:", e);
+            }
+        });
+        </script>    <!-- 顶部登录注册弹窗 -->
+    <div class="login-modal-overlay" id="login-modal-overlay"></div>
+    <div class="login-modal" id="login-modal">
+                <div class="login-modal-body">
+                        <div class="login-modal-content">
+            <!-- ========== 登录面板 ========== -->
+            <div id="login-panel">
+                                
+                                <!-- 手机号登录表单 -->
+                <form id="header-phone-form" class="login-modal-form " novalidate>
+                    <div class="modal-form-group">
+                        <input type="tel" id="header-phone" name="phone" placeholder="请输入手机号" required autocomplete="tel" maxlength="11" />
+                    </div>
+                    <div class="modal-form-group modal-sms-group">
+                        <input type="text" id="header-sms-code" name="code" placeholder="请输入验证码" required maxlength="6" autocomplete="one-time-code" />
+                        <button type="button" class="modal-sms-btn" id="header-sms-btn">获取验证码</button>
+                    </div>
+
+                                        
+                                        <div class="modal-form-group">
+                        <div class="slider-captcha modal-captcha" id="header-phone-slider-captcha">
+                            <div class="captcha-track">
+                                <div class="captcha-slider">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                </div>
+                                <div class="captcha-progress"></div>
+                                <span class="captcha-text">向右滑动验证</span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="captcha_verified" id="header-phone-captcha-verified" value="false" />
+                    </div>
+                                        
+                    <div class="modal-form-message" id="header-phone-message"></div>
+                    
+                    <button type="submit" class="login-modal-submit" id="header-phone-submit">
+                        <span class="btn-text">登 录</span>
+                        <span class="btn-loading" style="display:none">
+                            <svg class="spinner" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="10"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg>
+                        </span>
+                    </button>
+                    
+                                        
+                    <input type="hidden" name="redirect_to" id="header-phone-redirect-to" value="" />
+                </form>
+                                
+                                
+                                <div class="login-modal-footer">
+                                                                <a href="https://www.wujiit.com/password" class="login-modal-forgot-link">忘记密码？</a>
+                                    </div>
+            </div>
+            
+                        
+            <!-- ========== 注册面板 ========== -->
+                        </div>
+        </div>
+    </div>
+    
+    <style>
+    .login-modal .hidden {
+        display: none !important;
+    }
+    .modal-login-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding: 3px;
+        background: var(--bg-secondary, #f5f5f5);
+        border-radius: 6px;
+    }
+    .modal-tab {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        background: transparent;
+        color: var(--text-secondary, #666);
+        font-size: 13px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .modal-tab.active {
+        background: var(--bg-primary, #fff);
+        color: var(--color-primary, #2563eb);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    .login-modal-form.hidden {
+        display: none;
+    }
+    .modal-sms-group {
+        position: relative;
+    }
+    .modal-sms-group input {
+        padding-right: 110px !important;
+    }
+    .modal-sms-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 7px 14px;
+        border: none;
+        background: linear-gradient(135deg, var(--color-primary, #2563eb) 0%, #7c3aed 100%);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        transition: all 0.3s;
+    }
+    .modal-sms-btn:hover:not(:disabled) {
+        transform: translateY(-50%) scale(1.02);
+        box-shadow: 0 3px 10px rgba(37, 99, 235, 0.4);
+    }
+    .modal-sms-btn:disabled {
+        background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+    .modal-captcha-group {
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+    }
+    .login-modal .modal-captcha {
+        position: relative;
+        width: 100%;
+        height: 44px;
+    }
+    .login-modal .modal-captcha .captcha-track {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-secondary, #f0f0f0);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .login-modal .modal-captcha .captcha-slider {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--color-primary, #2563eb) 0%, #7c3aed 100%);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: grab;
+        z-index: 2;
+        touch-action: none;
+    }
+    .login-modal .modal-captcha .captcha-slider:active {
+        cursor: grabbing;
+    }
+    .login-modal .modal-captcha .captcha-slider svg {
+        color: #fff;
+        pointer-events: none;
+    }
+    .login-modal .modal-captcha .captcha-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 44px;
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
+        border-radius: 6px 0 0 6px;
+        z-index: 1;
+    }
+    .login-modal .modal-captcha .captcha-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--text-secondary, #999);
+        font-size: 13px;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .login-modal .modal-captcha.verified .captcha-slider {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    .login-modal .modal-captcha.verified .captcha-text {
+        color: #10b981;
+    }
+    @media (max-width: 1440px), (max-height: 900px) {
+        .modal-login-tabs {
+            gap: 6px;
+            margin-bottom: 10px;
+            padding: 2px;
+        }
+        .modal-tab {
+            padding: 6px;
+            font-size: 12px;
+        }
+        .modal-sms-group input {
+            padding-right: 98px !important;
+        }
+        .modal-sms-btn {
+            right: 8px;
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+        .login-modal .modal-captcha {
+            height: 38px;
+        }
+        .login-modal .modal-captcha .captcha-slider {
+            width: 38px;
+            height: 38px;
+            border-radius: 6px;
+        }
+        .login-modal .modal-captcha .captcha-progress {
+            width: 38px;
+            border-radius: 6px 0 0 6px;
+        }
+        .login-modal .modal-captcha .captcha-text {
+            font-size: 12px;
+        }
+        .modal-agreement-group {
+            margin-top: 4px;
+        }
+        .modal-agreement-label {
+            gap: 6px;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+        .modal-checkmark {
+            width: 14px;
+            height: 14px;
+        }
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var loginBtn = document.getElementById('header-login-toggle');
+        var loginModal = document.getElementById('login-modal');
+        var loginOverlay = document.getElementById('login-modal-overlay');
+        var loginClose = document.getElementById('login-modal-close');
+        var loginForm = document.getElementById('header-login-form');
+        var phoneForm = document.getElementById('header-phone-form');
+        var regForm = document.getElementById('header-register-form');
+        var redirectToInput = document.getElementById('header-redirect-to');
+        var modalTitle = document.getElementById('modal-title');
+        var loginPanel = document.getElementById('login-panel');
+        var registerPanel = document.getElementById('register-panel');
+        var weixinPanel = document.getElementById('weixin-login-panel');
+        var weixinToggleBtn = document.getElementById('login-weixin-toggle');
+        var weixinFooterBtn = document.getElementById('login-weixin-btn');
+        var weixinBackBtn = document.getElementById('weixin-back-btn');
+        var showRegisterBtn = document.getElementById('show-register-panel');
+        var showLoginBtn = document.getElementById('show-login-panel');
+        var modalTabs = loginModal ? loginModal.querySelectorAll('.modal-tab') : [];
+        var defaultPhone = true;
+        var smsPhoneOnly = true;
+        var defaultWeixin = false;
+        var currentUrl = window.location.href;
+        var isAliyunProvider = !!(window.DSProviderCaptcha && window.DSProviderCaptcha.isAliyunProvider && window.DSProviderCaptcha.isAliyunProvider());
+        window.DS_MODAL_AUTH_NONCE = 'd2fe04e664';
+        var dsModalSmsNonce = '5551793bf2';
+        var registerCodeEnabled = false;
+
+        function getModalDeviceFingerprint() {
+            try {
+                var key = 'ds_device_fingerprint_v1';
+                var fp = localStorage.getItem(key) || '';
+                if (!fp) {
+                    fp = (window.crypto && window.crypto.randomUUID)
+                        ? window.crypto.randomUUID()
+                        : ('ds-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2));
+                    localStorage.setItem(key, fp);
+                }
+                return String(fp || '').trim().toLowerCase();
+            } catch (e) {
+                return '';
+            }
+        }
+        
+        if (!loginModal) return;
+
+        function refreshNonce() {
+            fetch('https://www.wujiit.com/wp-admin/admin-ajax.php?action=developer_starter_refresh_nonce&_=' + Date.now(), { cache: 'no-store' })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    document.querySelectorAll('[name="header_auth_nonce"], [name="reg_auth_nonce"]').forEach(function(field) {
+                        field.value = data.data.auth_nonce;
+                    });
+                    window.DS_MODAL_AUTH_NONCE = data.data.auth_nonce;
+                    dsModalSmsNonce = data.data.sms_nonce;
+                }
+            })
+            .catch(function() {});
+        }
+
+        // 页面加载时刷新一次，避免缓存导致的 nonce 过期
+        refreshNonce();
+        // 每 15 分钟刷新一次
+        setInterval(refreshNonce, 15 * 60 * 1000);
+        
+        function closeModal() {
+            loginModal.classList.remove('active');
+            if (loginOverlay) loginOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            if (weixinPanel) weixinPanel.style.display = 'none';
+            if (loginPanel) loginPanel.style.display = 'block';
+            if (loginModal) loginModal.classList.remove('weixin-active');
+        }
+        
+        function setLoginTab(targetTab) {
+            modalTabs.forEach(function(t) { t.classList.remove('active'); });
+            modalTabs.forEach(function(t) {
+                if (t.dataset.tab === targetTab) {
+                    t.classList.add('active');
+                }
+            });
+            if (targetTab === 'phone') {
+                if (phoneForm) phoneForm.classList.remove('hidden');
+                if (loginForm) loginForm.classList.add('hidden');
+            } else {
+                if (loginForm) loginForm.classList.remove('hidden');
+                if (phoneForm) phoneForm.classList.add('hidden');
+            }
+            setTimeout(function() {
+                ensureVisibleModalCaptcha();
+            }, 0);
+        }
+
+        function ensureVisibleModalCaptcha() {
+            var activeForm = null;
+            if (registerPanel && registerPanel.style.display !== 'none') {
+                activeForm = regForm;
+            } else if (loginPanel && loginPanel.style.display !== 'none') {
+                activeForm = (phoneForm && !phoneForm.classList.contains('hidden')) ? phoneForm : loginForm;
+            }
+            if (!activeForm) {
+                return;
+            }
+
+            var captchaContainer = activeForm.querySelector('.slider-captcha');
+            var verifiedInput = activeForm.querySelector('input[name=\"captcha_verified\"]');
+            if (!captchaContainer || !verifiedInput || (!isAliyunProvider && captchaContainer.dataset.initialized === 'true')) {
+                return;
+            }
+
+            initModalCaptcha(captchaContainer, verifiedInput.id);
+            if (!isAliyunProvider) {
+                captchaContainer.dataset.initialized = 'true';
+            }
+        }
+        
+        function showLogin() {
+            if (loginPanel) loginPanel.style.display = 'block';
+            if (registerPanel) registerPanel.style.display = 'none';
+            if (weixinPanel) weixinPanel.style.display = 'none';
+            if (modalTitle) modalTitle.textContent = '用户登录';
+            if (loginModal) loginModal.classList.remove('weixin-active');
+            window.__qilingWeixinPreferred = false;
+            if (smsPhoneOnly) {
+                setLoginTab('phone');
+            } else if (defaultPhone) {
+                setLoginTab('phone');
+            } else {
+                setLoginTab('account');
+            }
+        }
+        
+        function showRegister() {
+            if (loginPanel) loginPanel.style.display = 'none';
+            if (registerPanel) registerPanel.style.display = 'block';
+            if (weixinPanel) weixinPanel.style.display = 'none';
+            if (modalTitle) modalTitle.textContent = '创建账户';
+            if (loginModal) loginModal.classList.remove('weixin-active');
+            window.__qilingWeixinPreferred = false;
+            setTimeout(function() {
+                ensureVisibleModalCaptcha();
+            }, 0);
+        }
+
+        function showWeixin() {
+            if (!weixinPanel) return;
+            if (loginPanel) loginPanel.style.display = 'none';
+            if (registerPanel) registerPanel.style.display = 'none';
+            weixinPanel.style.display = 'block';
+            if (modalTitle) modalTitle.textContent = '微信扫码登录';
+            if (loginModal) loginModal.classList.add('weixin-active');
+            window.__qilingWeixinPreferred = true;
+            if (window.qilingWeixinStartQr) {
+                var box = weixinPanel.querySelector('.qiling-weixin-qr');
+                if (box) {
+                    window.qilingWeixinStartQr(box);
+                }
+            }
+        }
+        
+        function openModal(view) {
+            if (redirectToInput) redirectToInput.value = currentUrl;
+            var regRedirect = document.getElementById('reg-redirect-to');
+            if (regRedirect) regRedirect.value = currentUrl;
+            var phoneRedirect = document.getElementById('header-phone-redirect-to');
+            if (phoneRedirect) phoneRedirect.value = currentUrl;
+
+            loginModal.classList.add('active');
+            if (loginOverlay) loginOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            var preferWeixin = (typeof window.__qilingWeixinPreferred !== 'undefined') ? window.__qilingWeixinPreferred : defaultWeixin;
+
+            if (view === 'register') {
+                showRegister();
+            } else {
+                if (preferWeixin) {
+                    showWeixin();
+                } else {
+                    showLogin();
+                }
+            }
+            setTimeout(function() {
+                ensureVisibleModalCaptcha();
+            }, 0);
+        }
+        
+        window.developerStarterShowLoginModal = function(view) {
+            if (loginModal) {
+                openModal(view || 'login');
+                return true;
+            }
+            return false;
+        };
+        
+        if (showRegisterBtn) {
+            showRegisterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showRegister();
+            });
+        }
+        if (showLoginBtn) {
+            showLoginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLogin();
+            });
+        }
+        if (weixinToggleBtn) {
+            weixinToggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (loginModal && loginModal.classList.contains('weixin-active')) {
+                    showLogin();
+                } else {
+                    showWeixin();
+                }
+            });
+        }
+        if (weixinFooterBtn) {
+            weixinFooterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showWeixin();
+            });
+        }
+        if (weixinBackBtn) {
+            weixinBackBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLogin();
+            });
+        }
+        
+        if (loginBtn) {
+            loginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('login');
+            });
+        }
+        
+        if (loginClose) loginClose.addEventListener('click', closeModal);
+        if (loginOverlay) loginOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        var userToggle = document.getElementById('header-user-toggle');
+        var userDropdown = document.getElementById('user-dropdown');
+        if (userToggle && userDropdown) {
+            userToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                userDropdown.classList.toggle('active');
+            });
+            document.addEventListener('click', function() {
+                userDropdown.classList.remove('active');
+            });
+        }
+        
+        modalTabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var targetTab = this.dataset.tab;
+                setLoginTab(targetTab);
+            });
+        });
+        
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var submitBtn = document.getElementById('header-login-submit');
+                var message = document.getElementById('header-form-message');
+                
+                var formData = new FormData(loginForm);
+                formData.append('action', 'developer_starter_login');
+                formData.append('nonce', document.querySelector('[name="header_auth_nonce"]').value);
+                
+                submitBtn.disabled = true;
+                submitBtn.querySelector('.btn-text').style.display = 'none';
+                submitBtn.querySelector('.btn-loading').style.display = 'inline-flex';
+                
+                fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        message.className = 'modal-form-message success';
+                        message.textContent = data.data.message;
+                        setTimeout(function() {
+                            if (data.data.redirect) {
+                                window.location.href = data.data.redirect;
+                            } else {
+                                window.location.reload();
+                            }
+                        }, 1000);
+                    } else {
+                        message.className = 'modal-form-message error';
+                        message.textContent = data.data.message;
+                        resetModalCaptcha('header-slider-captcha', 'header-captcha-verified');
+                        submitBtn.disabled = false;
+                        submitBtn.querySelector('.btn-text').style.display = 'inline';
+                        submitBtn.querySelector('.btn-loading').style.display = 'none';
+                    }
+                })
+                .catch(function() {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '网络错误，请稍后再试';
+                    resetModalCaptcha('header-slider-captcha', 'header-captcha-verified');
+                    submitBtn.disabled = false;
+                    submitBtn.querySelector('.btn-text').style.display = 'inline';
+                    submitBtn.querySelector('.btn-loading').style.display = 'none';
+                });
+            });
+        }
+        
+        if (phoneForm) {
+            var phoneInput = document.getElementById('header-phone');
+            var codeInput = document.getElementById('header-sms-code');
+            var sendBtn = document.getElementById('header-sms-btn');
+            var phoneSubmitBtn = document.getElementById('header-phone-submit');
+            var phoneMessage = document.getElementById('header-phone-message');
+            var phoneRedirect = document.getElementById('header-phone-redirect-to');
+            
+            if (sendBtn) {
+                sendBtn.addEventListener('click', function() {
+                    var phone = phoneInput.value.trim();
+                    if (!/^1[3-9]\d{9}$/.test(phone)) {
+                        phoneMessage.className = 'modal-form-message error';
+                        phoneMessage.textContent = '请输入正确的手机号';
+                        return;
+                    }
+                    
+                    sendBtn.disabled = true;
+                    sendBtn.textContent = '发送中...';
+                    
+                    var formData = new FormData();
+                    formData.append('action', 'sms_send_code');
+                    formData.append('nonce', dsModalSmsNonce);
+                    formData.append('phone', phone);
+                    formData.append('device_fingerprint', getModalDeviceFingerprint());
+                    
+                    // 添加滑动验证令牌（如果存在）
+                    var phoneCaptchaInput = document.getElementById('header-phone-captcha-verified');
+                    if (phoneCaptchaInput) {
+                        formData.append('captcha_verified', phoneCaptchaInput.value);
+                    }
+                    
+                    fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        if (data.success) {
+                            phoneMessage.className = 'modal-form-message success';
+                            phoneMessage.textContent = data.data.message;
+                            var countdown = 60;
+                            var timer = setInterval(function() {
+                                countdown--;
+                                if (countdown > 0) {
+                                    sendBtn.textContent = countdown + 's';
+                                } else {
+                                    clearInterval(timer);
+                                    sendBtn.disabled = false;
+                                    sendBtn.textContent = '获取验证码';
+                                }
+                            }, 1000);
+                        } else {
+                            phoneMessage.className = 'modal-form-message error';
+                            phoneMessage.textContent = data.data.message;
+                            resetModalCaptcha('header-phone-slider-captcha', 'header-phone-captcha-verified');
+                            sendBtn.disabled = false;
+                            sendBtn.textContent = '获取验证码';
+                        }
+                    })
+                    .catch(function() {
+                        phoneMessage.className = 'modal-form-message error';
+                        phoneMessage.textContent = '网络错误';
+                        resetModalCaptcha('header-phone-slider-captcha', 'header-phone-captcha-verified');
+                        sendBtn.disabled = false;
+                        sendBtn.textContent = '获取验证码';
+                    });
+                });
+            }
+            
+            phoneForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                var phone = phoneInput.value.trim();
+                var code = codeInput.value.trim();
+                var registrationCodeInput = document.getElementById('header-registration-code');
+                var registrationCode = registrationCodeInput ? registrationCodeInput.value.trim() : '';
+                
+                if (!/^1[3-9]\d{9}$/.test(phone)) {
+                    phoneMessage.className = 'modal-form-message error';
+                    phoneMessage.textContent = '请输入正确的手机号';
+                    return;
+                }
+                if (!/^\d{6}$/.test(code)) {
+                    phoneMessage.className = 'modal-form-message error';
+                    phoneMessage.textContent = '请输入6位验证码';
+                    return;
+                }
+                
+                phoneSubmitBtn.disabled = true;
+                phoneSubmitBtn.querySelector('.btn-text').style.display = 'none';
+                phoneSubmitBtn.querySelector('.btn-loading').style.display = 'inline-flex';
+                
+                var formData = new FormData();
+                formData.append('action', 'sms_phone_login');
+                formData.append('nonce', dsModalSmsNonce);
+                formData.append('phone', phone);
+                formData.append('code', code);
+                formData.append('device_fingerprint', getModalDeviceFingerprint());
+                if (registerCodeEnabled) {
+                    formData.append('registration_code', registrationCode);
+                }
+                formData.append('redirect_to', phoneRedirect ? phoneRedirect.value : currentUrl);
+                
+                // 添加滑动验证令牌
+                var phoneCaptchaInput = document.getElementById('header-phone-captcha-verified');
+                if (phoneCaptchaInput) {
+                    formData.append('captcha_verified', phoneCaptchaInput.value);
+                }
+                
+                fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        phoneMessage.className = 'modal-form-message success';
+                        phoneMessage.textContent = data.data.message;
+                        setTimeout(function() {
+                            if (data.data.redirect) {
+                                window.location.href = data.data.redirect;
+                            } else {
+                                window.location.reload();
+                            }
+                        }, 1000);
+                    } else {
+                        phoneMessage.className = 'modal-form-message error';
+                        phoneMessage.textContent = data.data.message;
+                        phoneSubmitBtn.disabled = false;
+                        phoneSubmitBtn.querySelector('.btn-text').style.display = 'inline';
+                        phoneSubmitBtn.querySelector('.btn-loading').style.display = 'none';
+                    }
+                })
+                .catch(function() {
+                    phoneMessage.className = 'modal-form-message error';
+                    phoneMessage.textContent = '网络错误';
+                    phoneSubmitBtn.disabled = false;
+                    phoneSubmitBtn.querySelector('.btn-text').style.display = 'inline';
+                    phoneSubmitBtn.querySelector('.btn-loading').style.display = 'none';
+                });
+            });
+        }
+        
+        if (regForm) {
+            regForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                var submitBtn = document.getElementById('reg-submit-btn');
+                var message = document.getElementById('reg-form-message');
+                var usernameInput = document.getElementById('reg-username');
+                var emailInput = document.getElementById('reg-email');
+                var passwordInput = document.getElementById('reg-password');
+                var confirmInput = document.getElementById('reg-password-confirm');
+                
+                var username = usernameInput ? usernameInput.value.trim() : '';
+                var email = emailInput ? emailInput.value.trim() : '';
+                var password = passwordInput ? passwordInput.value : '';
+                var passwordConfirm = confirmInput ? confirmInput.value : '';
+                var registrationCodeInput = document.getElementById('reg-registration-code');
+                var registrationCode = registrationCodeInput ? registrationCodeInput.value.trim() : '';
+                
+                if (username.length < 3) {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '用户名至少需要3个字符';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    return;
+                }
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '请输入正确的邮箱地址';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    return;
+                }
+                if (password.length < 6) {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '密码至少需要6个字符';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    return;
+                }
+                if (password !== passwordConfirm) {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '两次输入的密码不一致';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    return;
+                }
+                if (registerCodeEnabled && !registrationCode) {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '请输入注册码';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    return;
+                }
+                
+                var formData = new FormData(regForm);
+                formData.append('action', 'developer_starter_register');
+                formData.append('nonce', document.querySelector('[name="reg_auth_nonce"]').value);
+                
+                submitBtn.disabled = true;
+                submitBtn.querySelector('.btn-text').style.display = 'none';
+                submitBtn.querySelector('.btn-loading').style.display = 'inline-flex';
+                
+                fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        message.className = 'modal-form-message success';
+                        message.textContent = data.data.message;
+                        setTimeout(function() {
+                            if (data.data.redirect) {
+                                window.location.href = data.data.redirect;
+                            } else {
+                                window.location.reload();
+                            }
+                        }, 1000);
+                    } else {
+                        message.className = 'modal-form-message error';
+                        message.textContent = data.data.message;
+                        resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                        submitBtn.disabled = false;
+                        submitBtn.querySelector('.btn-text').style.display = 'inline';
+                        submitBtn.querySelector('.btn-loading').style.display = 'none';
+                    }
+                })
+                .catch(function() {
+                    message.className = 'modal-form-message error';
+                    message.textContent = '网络错误，请稍后再试';
+                    resetModalCaptcha('reg-slider-captcha', 'reg-captcha-verified');
+                    submitBtn.disabled = false;
+                    submitBtn.querySelector('.btn-text').style.display = 'inline';
+                    submitBtn.querySelector('.btn-loading').style.display = 'none';
+                });
+            });
+        }
+    });
+    
+    function getModalAuthNonce() {
+        var authField = document.querySelector('[name="header_auth_nonce"]') || document.querySelector('[name="reg_auth_nonce"]');
+        if (authField && authField.value) {
+            return authField.value;
+        }
+        if (typeof window.DS_MODAL_AUTH_NONCE !== 'undefined' && window.DS_MODAL_AUTH_NONCE) {
+            return window.DS_MODAL_AUTH_NONCE;
+        }
+        return 'd2fe04e664';
+    }
+
+    function isAliyunCaptchaProvider() {
+        return !!(window.DSProviderCaptcha && window.DSProviderCaptcha.isAliyunProvider && window.DSProviderCaptcha.isAliyunProvider());
+    }
+
+    function requestModalCaptchaChallenge(container) {
+        if (!container) return;
+        if (isAliyunCaptchaProvider()) return;
+        var formData = new FormData();
+        formData.append('action', 'developer_starter_captcha_challenge');
+        formData.append('nonce', getModalAuthNonce());
+
+        fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if (data && data.success && data.data) {
+                container.dataset.challengeId = data.data.challenge_id || '';
+                container.dataset.challengeSignature = data.data.challenge_signature || '';
+                container.dataset.challengeIssued = String(data.data.challenge_issued || '');
+            }
+        })
+        .catch(function() {});
+    }
+
+    function initModalCaptcha(container, verifiedInputId) {
+        var slider = container.querySelector('.captcha-slider');
+        var progress = container.querySelector('.captcha-progress');
+        var text = container.querySelector('.captcha-text');
+        var track = container.querySelector('.captcha-track');
+        var verified = document.getElementById(verifiedInputId);
+        
+        if (!slider || !track || !verified) return;
+
+        if (isAliyunCaptchaProvider()) {
+            window.DSProviderCaptcha.attachAliyunCaptcha(container, {
+                verifiedInput: verified,
+                sceneType: 'auth',
+                nonceGetter: getModalAuthNonce,
+                waitingText: '点击完成验证',
+                buttonText: '点击验证',
+                verifyingText: '正在验证...',
+                successText: '验证成功',
+                failedText: '验证失败，请重试',
+                configErrorText: '验证码配置不完整，请联系管理员'
+            });
+            return;
+        }
+        
+        var isDragging = false;
+        var hasMoved = false;
+        var startX = 0;
+        var sliderLeft = 0;
+        var sliderWidth = 44;
+        var trackWidth = 0;
+        var dragStartedAt = 0;
+        var moveCount = 0;
+        var maxLeft = 0;
+        
+        function updateTrackWidth() {
+            trackWidth = track.offsetWidth - sliderWidth;
+        }
+        
+        function getClientX(e) {
+            return e.touches ? e.touches[0].clientX : e.clientX;
+        }
+        
+        function handleStart(e) {
+            if (verified.value && verified.value !== 'false') return;
+            
+            updateTrackWidth();
+            isDragging = true;
+            hasMoved = false;
+            startX = getClientX(e);
+            sliderLeft = parseInt(slider.style.left) || 0;
+            dragStartedAt = Date.now();
+            moveCount = 0;
+            maxLeft = sliderLeft;
+            
+            slider.style.transition = 'none';
+            progress.style.transition = 'none';
+            
+            e.preventDefault();
+        }
+        
+        function handleMove(e) {
+            if (!isDragging) return;
+            
+            var clientX = getClientX(e);
+            var deltaX = clientX - startX;
+            var newLeft = Math.max(0, Math.min(sliderLeft + deltaX, trackWidth));
+            
+            if (Math.abs(deltaX) > 5) {
+                hasMoved = true;
+            }
+            moveCount++;
+            if (newLeft > maxLeft) {
+                maxLeft = newLeft;
+            }
+            
+            slider.style.left = newLeft + 'px';
+            progress.style.width = (newLeft + sliderWidth) + 'px';
+            
+            e.preventDefault();
+        }
+        
+        function handleEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            slider.style.transition = 'left 0.3s';
+            progress.style.transition = 'width 0.3s';
+            
+            var currentLeft = parseInt(slider.style.left) || 0;
+            
+            if (hasMoved && currentLeft >= trackWidth - 5 && trackWidth > 0) {
+                var challengeId = container.dataset.challengeId || '';
+                var challengeSignature = container.dataset.challengeSignature || '';
+                var challengeIssued = container.dataset.challengeIssued || '';
+                if (!challengeId || !challengeSignature || !challengeIssued) {
+                    text.textContent = '验证初始化失败，请重试';
+                    setTimeout(function() {
+                        resetModalCaptcha(container.id, verifiedInputId);
+                    }, 500);
+                    return;
+                }
+
+                // 向服务器请求验证token
+                text.textContent = '正在验证...';
+                slider.style.pointerEvents = 'none';
+                
+                var formData = new FormData();
+                formData.append('action', 'developer_starter_captcha_verify');
+                formData.append('nonce', getModalAuthNonce());
+                formData.append('challenge_id', challengeId);
+                formData.append('challenge_signature', challengeSignature);
+                formData.append('challenge_issued', challengeIssued);
+                formData.append('drag_duration', String(Math.max(0, Date.now() - dragStartedAt)));
+                formData.append('move_count', String(moveCount));
+                formData.append('drag_distance', String(Math.max(currentLeft, maxLeft)));
+                
+                fetch('https://www.wujiit.com/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        verified.value = data.data.token;
+                        container.classList.add('verified');
+                        text.textContent = '验证成功';
+                        slider.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+                    } else {
+                        text.textContent = '验证失败，请重试';
+                        setTimeout(function() {
+                            resetModalCaptcha(container.id, verifiedInputId);
+                        }, 1000);
+                    }
+                })
+                .catch(function() {
+                    text.textContent = '网络错误';
+                    setTimeout(function() {
+                        resetModalCaptcha(container.id, verifiedInputId);
+                    }, 1000);
+                });
+            } else {
+                slider.style.left = '0';
+                progress.style.width = sliderWidth + 'px';
+            }
+        }
+        
+        slider.addEventListener('mousedown', handleStart);
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mouseup', handleEnd);
+        slider.addEventListener('touchstart', handleStart, { passive: false });
+        document.addEventListener('touchmove', handleMove, { passive: false });
+        document.addEventListener('touchend', handleEnd);
+
+        requestModalCaptchaChallenge(container);
+    }
+
+    function resetModalCaptcha(containerId, verifiedInputId) {
+        var container = document.getElementById(containerId);
+        var verified = document.getElementById(verifiedInputId);
+        if (!container || !verified) return;
+        if (isAliyunCaptchaProvider()) {
+            window.DSProviderCaptcha.resetContainer(container, verified);
+            return;
+        }
+        var slider = container.querySelector('.captcha-slider');
+        var progress = container.querySelector('.captcha-progress');
+        var text = container.querySelector('.captcha-text');
+        if (!slider || !progress || !text) return;
+        verified.value = 'false';
+        container.classList.remove('verified');
+        slider.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>';
+        slider.style.pointerEvents = 'auto';
+        slider.style.left = '0';
+        progress.style.width = slider.offsetWidth + 'px';
+        text.textContent = '向右滑动验证';
+        container.dataset.challengeId = '';
+        container.dataset.challengeSignature = '';
+        container.dataset.challengeIssued = '';
+        requestModalCaptchaChallenge(container);
+    }
+    </script>
+            <div class="float-widgets">
+            
+                            <div class="float-widget widget-wechat">
+                    <span class="widget-icon" title="微信">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18 0 .65-.52 1.178-1.162 1.178a1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.045c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zm-2.036 2.83c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z"/></svg>
+                    </span>
+                    <div class="widget-popup widget-popup-qr">
+                        <img src="https://aiimg.qiyucloud.com/wp-content/uploads/2026/01/20260119181254834.png" alt="微信二维码" />
+                        <span class="popup-label">扫码添加微信</span>
+                    </div>
+                </div>
+            
+                            <div class="float-widget widget-qq">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=19577566&site=qq&menu=yes" target="_blank" class="widget-icon" title="QQ咨询">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.003 2c-2.265 0-6.29 1.364-6.29 7.325v1.195S3.55 14.96 3.55 17.474c0 .665.17 1.025.281 1.025.114 0 .902-.484 1.748-2.072 0 0-.18 2.197 1.904 3.967 0 0-1.77.495-1.77 1.182 0 .686 4.078.43 6.29 0 2.239.425 6.287.687 6.287 0 0-.688-1.768-1.182-1.768-1.182 2.085-1.77 1.905-3.967 1.905-3.967.845 1.588 1.634 2.072 1.746 2.072.111 0 .283-.36.283-1.025 0-2.514-2.166-6.954-2.166-6.954V9.325C18.29 3.364 14.268 2 12.003 2z"/></svg>
+                    </a>
+                    <div class="widget-popup">
+                        <span class="popup-label">QQ在线咨询</span>
+                        <span class="popup-content">19577566</span>
+                    </div>
+                </div>
+            
+            
+            <div class="float-widget widget-totop" id="back-to-top" title="返回顶部">
+                <span class="widget-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                </span>
+            </div>
+        </div>
+        <script id="xb-adcustom-frontend-js-extra">
+var xb_adcustom_ajax = {"ajax_url":"https://www.wujiit.com/wp-admin/admin-ajax.php","nonce":"09003e7936"};
+//# sourceURL=xb-adcustom-frontend-js-extra
+</script>
+<script src="https://www.wujiit.com/wp-content/plugins/xb-adcustom-plugin/assets/js/frontend.js?ver=1.2.1" id="xb-adcustom-frontend-js"></script>
+<script src="https://www.wujiit.com/wp-content/themes/qiling/assets/js/captcha-provider.js?ver=1772288791" id="developer-starter-captcha-provider-js"></script>
+<script id="developer-starter-main-js-extra">
+var developerStarterData = {"ajaxUrl":"https://www.wujiit.com/wp-admin/admin-ajax.php","nonce":"6ecd0124d5","authNonce":"d2fe04e664","userStatusNonce":"18890559fd","ipLookupNonce":"b02fe7d8ae","homeUrl":"https://www.wujiit.com","themeUrl":"https://www.wujiit.com/wp-content/themes/qiling","captcha":{"provider":"theme","verifyAction":"developer_starter_captcha_verify","verifyNonce":"d2fe04e664","aliyunScript":"https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js","aliyunPrefix":"","aliyunRegion":"cn","sceneAuth":"","sceneSearch":""},"searchOverlayScript":"https://www.wujiit.com/wp-content/themes/qiling/assets/js/search-overlay.js?ver=1772288791","searchCaptchaLazyLoad":"","searchCaptchaAssets":{"style":"https://www.wujiit.com/wp-content/themes/qiling/assets/css/search-captcha.css?ver=1772288791","script":"https://www.wujiit.com/wp-content/themes/qiling/assets/js/search-captcha.js?ver=1772288791","jquery":"https://www.wujiit.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"},"strings":{"sending":"\u53d1\u9001\u4e2d...","contactSuccess":"\u611f\u8c22\u60a8\u7684\u7559\u8a00\uff0c\u6211\u4eec\u4f1a\u5c3d\u5feb\u4e0e\u60a8\u8054\u7cfb\uff01","error":"\u7f51\u7edc\u9519\u8bef\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5"},"searchCaptcha":{"provider":"theme","verifyNonce":"d2fe04e664","verifyAction":"developer_starter_captcha_verify","aliyunScript":"https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js","aliyunPrefix":"","aliyunRegion":"cn","sceneSearch":"","closeLabel":"\u5173\u95ed","title":"\u5b89\u5168\u9a8c\u8bc1","dragText":"\u6309\u4f4f\u6ed1\u5757 \u62d6\u52a8\u5230\u6700\u53f3\u4fa7","successText":"\u9a8c\u8bc1\u901a\u8fc7"},"headerAuthScript":"https://www.wujiit.com/wp-content/themes/qiling/assets/js/header-auth.js?ver=1772288791"};
+//# sourceURL=developer-starter-main-js-extra
+</script>
+<script src="https://www.wujiit.com/wp-content/themes/qiling/assets/js/main.js?ver=1772288791" id="developer-starter-main-js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT:8082}
+
+spring:
+  application:
+    name: lingling-admin-api
+
+app:
+  cors-origins: ${CORS_ORIGINS:*}
+  bot-data-path: ${BOT_DATA_PATH:/www/wwwroot/qq-bot-workspace/schedule-bot/data}
+  bot-env-path: ${BOT_ENV_PATH:/www/wwwroot/qq-bot-workspace/schedule-bot/.env}
+  schedule-api-base: ${SCHEDULE_API_BASE:http://127.0.0.1:5000}
+  jwt-secret: ${JWT_SECRET:lingling-admin-change-me-in-production}
+  jwt-expire-hours: 24
+  admin-username: ${ADMIN_USERNAME:admin}
+  admin-password: ${ADMIN_PASSWORD:lingling2026}
+  admin-qq-ids: ${ADMIN_QQ_IDS:2321850493}

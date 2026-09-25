@@ -1,0 +1,215 @@
+/app/.config/QQ/crash_files//tomb_1787636638274.txt
+3ad102150000-3ad10216b000 rwxp 00000000 00:00 0 
+5567c49aa000-5567ccf28000 r-xp 01fa9000 fd:03 1475688                    /opt/QQ/qq
+5567e0000000-556800000000 rwxp 00000000 00:00 0 
+7f3bccc1b000-7f3bcd41b000 rwxp 00000000 00:00 0 
+7f3bcdc1d000-7f3bce42d000 rwxp 00000000 00:00 0 
+7f3bce430000-7f3bce43b000 r-xp 00003000 fd:03 1478670                    /app/napcat/moehoo/MoeHoo.linux.x64.node
+7f3bce44d000-7f3bcec4d000 rwxp 00000000 00:00 0 
+7f3bcec4e000-7f3bcf44e000 rwxp 00000000 00:00 0 
+7f3bcf457000-7f3bcfc57000 rwxp 00000000 00:00 0 
+7f3bcfc88000-7f3bd0488000 rwxp 00000000 00:00 0 
+7f3bd1ccc000-7f3bd24cc000 rwxp 00000000 00:00 0 
+7f3bd24cd000-7f3bd2ccd000 rwxp 00000000 00:00 0 
+7f3bd2cce000-7f3bd34ce000 rwxp 00000000 00:00 0 
+7f3bd34cf000-7f3bd3ccf000 rwxp 00000000 00:00 0 
+7f3bd3cd0000-7f3bd44d0000 rwxp 00000000 00:00 0 
+7f3bd44d1000-7f3bd4cd1000 rwxp 00000000 00:00 0 
+7f3bd4cd2000-7f3bd54d2000 rwxp 00000000 00:00 0 
+7f3bd54d3000-7f3bd5cd3000 rwxp 00000000 00:00 0 
+7f3bd5cd4000-7f3bd64d4000 rwxp 00000000 00:00 0 
+7f3bd64d5000-7f3bd6cd5000 rwxp 00000000 00:00 0 
+7f3bd6cd6000-7f3bd74d6000 rwxp 00000000 00:00 0 
+7f3bd74d7000-7f3bd7cd7000 rwxp 00000000 00:00 0 
+7f3bd7cd8000-7f3bd84d8000 rwxp 00000000 00:00 0 
+7f3bd84d9000-7f3bd8cd9000 rwxp 00000000 00:00 0 
+7f3bd8cda000-7f3bd94da000 rwxp 00000000 00:00 0 
+7f3bd94db000-7f3bd9cdb000 rwxp 00000000 00:00 0 
+7f3bd9cdc000-7f3bda4dc000 rwxp 00000000 00:00 0 
+7f3bda4dd000-7f3bdacdd000 rwxp 00000000 00:00 0 
+7f3bdacde000-7f3bdb4de000 rwxp 00000000 00:00 0 
+7f3bdb4df000-7f3bdbcdf000 rwxp 00000000 00:00 0 
+7f3bdbce0000-7f3bdc4e0000 rwxp 00000000 00:00 0 
+7f3bdc4e1000-7f3bdcce1000 rwxp 00000000 00:00 0 
+7f3bde52d000-7f3bded2d000 rwxp 00000000 00:00 0 
+7f3bded36000-7f3bdf536000 rwxp 00000000 00:00 0 
+7f3bdf537000-7f3bdfd37000 rwxp 00000000 00:00 0 
+7f3bdfd38000-7f3be0538000 rwxp 00000000 00:00 0 
+7f3be0539000-7f3be0d39000 rwxp 00000000 00:00 0 
+7f3be0d3a000-7f3be153a000 rwxp 00000000 00:00 0 
+7f3be153b000-7f3be1d3b000 rwxp 00000000 00:00 0 
+7f3be1d3d000-7f3be1d46000 r-xp 00002000 fd:03 1475762                    /opt/QQ/resources/app/libunwind.so.8
+7f3be1d5b000-7f3be1d7d000 r-xp 00005000 fd:03 1475760                    /opt/QQ/resources/app/libssh2.so.1
+7f3be1eae000-7f3be1fed000 r-xp 00122000 fd:03 1475759                    /opt/QQ/resources/app/libcrbase.so
+7f3be20f4000-7f3be2a35000 r-xp 000f4000 fd:03 1476774                    /opt/QQ/resources/app/sharp-lib/libvips-cpp.so.42
+7f3be30ba000-7f3be30c9000 r-xp 00002000 fd:03 1475761                    /opt/QQ/resources/app/libunwind-x86_64.so.8
+7f3be30d9000-7f3be30da000 r-xp 00001000 fd:03 1443959                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7f3be30e1000-7f3be30e2000 r-xp 00000000 00:00 0 
+7f3be3157000-7f3be322f000 r-xp 00072000 fd:03 1475758                    /opt/QQ/resources/app/libbugly.so
+7f3be4e1d000-7f3be82cb000 r-xp 01be0000 fd:03 1476776                    /opt/QQ/resources/app/wrapper.node
+7f3be82cb000-7f3be82cc000 r-xp 0508e000 fd:03 1476776                    /opt/QQ/resources/app/wrapper.node
+7f3be82cc000-7f3be82cd000 r-xp 0508f000 fd:03 1476776                    /opt/QQ/resources/app/wrapper.node
+7f3be82cd000-7f3be82ce000 r-xp 05090000 fd:03 1476776                    /opt/QQ/resources/app/wrapper.node
+7f3be82ce000-7f3be925b000 r-xp 05091000 fd:03 1476776                    /opt/QQ/resources/app/wrapper.node
+7f3be94f5000-7f3be9cf5000 rwxp 00000000 00:00 0 
+7f3be9cf6000-7f3bea4f6000 rwxp 00000000 00:00 0 
+7f3bea51d000-7f3bea537000 r-xp 00004000 fd:03 1443984                    /usr/lib/x86_64-linux-gnu/libudev.so.1.7.2
+7f3bea544000-7f3bead44000 rwxp 00000000 00:00 0 
+7f3bead45000-7f3beb545000 rwxp 00000000 00:00 0 
+7f3beb586000-7f3bebd86000 rwxp 00000000 00:00 0 
+7f3bebd87000-7f3bec587000 rwxp 00000000 00:00 0 
+7f3bec588000-7f3becd88000 rwxp 00000000 00:00 0 
+7f3becd89000-7f3bed589000 rwxp 00000000 00:00 0 
+7f3bed58a000-7f3bedd8a000 rwxp 00000000 00:00 0 
+7f3bedd8b000-7f3bee58b000 rwxp 00000000 00:00 0 
+7f3beebd8000-7f3beebe0000 rwxp 00000000 00:00 0 
+7f3beebe1000-7f3bef3e1000 rwxp 00000000 00:00 0 
+7f3bef3e2000-7f3bef3e3000 r-xp 00001000 fd:03 1451548                    /usr/lib/x86_64-linux-gnu/libicudata.so.70.1
+7f3bf1065000-7f3bf1158000 r-xp 00066000 fd:03 1451558                    /usr/lib/x86_64-linux-gnu/libicuuc.so.70.1
+7f3bf11fc000-7f3bf1201000 r-xp 00002000 fd:03 1451648                    /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1
+7f3bf1234000-7f3bf1387000 r-xp 0002f000 fd:03 1451862                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13
+7f3bf13f5000-7f3bf1406000 r-xp 0000e000 fd:03 1443980                    /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7f3bf1421000-7f3bf143f000 r-xp 00008000 fd:03 1451437                    /usr/lib/x86_64-linux-gnu/libedit.so.2.0.68
+7f3bf14ed000-7f3bf15fe000 r-xp 0009a000 fd:03 1443971                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f3bf1682000-7f3bf1699000 r-xp 00003000 fd:03 1451431                    /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.0.0
+7f3bf16a7000-7f3bf16ac000 r-xp 00002000 fd:03 1451433                    /usr/lib/x86_64-linux-gnu/libdrm_nouveau.so.2.0.0
+7f3bf16b3000-7f3bf16b8000 r-xp 00003000 fd:03 1451429                    /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0
+7f3bf16bf000-7f3bf16d3000 r-xp 00003000 fd:03 1451438                    /usr/lib/x86_64-linux-gnu/libelf-0.186.so
+7f3bf16dc000-7f3bf16e3000 r-xp 00002000 fd:03 1451435                    /usr/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1
+7f3bf16eb000-7f3bf16f2000 r-xp 00002000 fd:03 1451727                    /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0
+7f3bf16f9000-7f3bf7e0b000 r-xp 00000000 fd:03 1451268                    /usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+7f3bf8781000-7f3bf9a81000 r-xp 00096000 fd:03 1451186                    /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+7f3bfa7c9000-7f3bfa7cc000 r-xp 00003000 fd:03 1451854                    /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0
+7f3bfa7d3000-7f3bfa7d6000 r-xp 00003000 fd:03 1451852                    /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
+7f3bfa7db000-7f3bfa7dc000 r-xp 00001000 fd:03 1451842                    /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0
+7f3bfa7e1000-7f3bfa7e3000 r-xp 00002000 fd:03 1451838                    /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.0.0
+7f3bfa7e7000-7f3bfa7ea000 r-xp 00001000 fd:03 1451321                    /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0
+7f3bfa7ef000-7f3bfa7f1000 r-xp 00002000 fd:03 1451836                    /usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0.0.0
+7f3bfa7ff000-7f3bfa808000 r-xp 0000b000 fd:03 1451840                    /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+7f3bfa81e000-7f3bfa82c000 r-xp 0000d000 fd:03 1451511                    /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7f3bfa85f000-7f3bfa89e000 r-xp 00019000 fd:03 1451262                    /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+7f3bfa8bc000-7f3bfa8d7000 r-xp 00003000 fd:03 1451259                    /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7f3bfa92d000-7f3bfa96c000 r-xp 00040000 fd:03 1451264                    /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7f3bfa9e8000-7f3bfaa07000 r-xp 00043000 fd:03 1451257                    /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7f3bfaa2d000-7f3bfb22d000 rwxp 00000000 00:00 0 
+7f3bfb22e000-7f3bfba2e000 rwxp 00000000 00:00 0 
+7f3bfba2f000-7f3bfc22f000 rwxp 00000000 00:00 0 
+7f3bfc230000-7f3bfca30000 rwxp 00000000 00:00 0 
+7f3c78ab1000-7f3c78ab2000 r-xp 00001000 fd:03 1451864                    /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0
+7f3c78ab6000-7f3c78ab7000 r-xp 00001000 fd:03 1451276                    /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0
+7f3c78abb000-7f3c792bb000 rwxp 00000000 00:00 0 
+7f3c792bc000-7f3c79abc000 rwxp 00000000 00:00 0 
+7f3c79abd000-7f3c7a2bd000 rwxp 00000000 00:00 0 
+7f3c7a2be000-7f3c7aabe000 rwxp 00000000 00:00 0 
+7f3c7aabf000-7f3c7b2bf000 rwxp 00000000 00:00 0 
+7f3c7b2c0000-7f3c7bac0000 rwxp 00000000 00:00 0 
+7f3c7bac1000-7f3c7c2c1000 rwxp 00000000 00:00 0 
+7f3c7c2c2000-7f3c7cac2000 rwxp 00000000 00:00 0 
+7f3c7cac3000-7f3c7d2c3000 rwxp 00000000 00:00 0 
+7f3c7d2c4000-7f3c7dac4000 rwxp 00000000 00:00 0 
+7f3c7dac5000-7f3c7e2c5000 rwxp 00000000 00:00 0 
+7f3c7ed72000-7f3c7ed79000 r-xp 00002000 fd:03 1451594                    /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+7f3c7ed7e000-7f3c7ed7f000 r-xp 00001000 fd:03 1451367                    /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.0.9
+7f3c7eda3000-7f3c7edad000 r-xp 00003000 fd:03 1443958                    /usr/lib/x86_64-linux-gnu/libresolv.so.2
+7f3c7edb6000-7f3c7edb8000 r-xp 00002000 fd:03 1443905                    /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.9
+7f3c7edbf000-7f3c7edd5000 r-xp 00004000 fd:03 1443895                    /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+7f3c7ede7000-7f3c7edf4000 r-xp 00004000 fd:03 1451375                    /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+7f3c7edfc000-7f3c7ee04000 r-xp 00001000 fd:03 1451369                    /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.0.9
+7f3c7ee0b000-7f3c7ee0f000 r-xp 00002000 fd:03 1451409                    /usr/lib/x86_64-linux-gnu/libdatrie.so.1.4.0
+7f3c7ee14000-7f3c7ee18000 r-xp 00002000 fd:03 1443989                    /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f3c7ee1e000-7f3c7ee3b000 r-xp 00003000 fd:03 1451532                    /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1
+7f3c7ee48000-7f3c7ee91000 r-xp 00004000 fd:03 1451573                    /usr/lib/x86_64-linux-gnu/libjpeg.so.8.2.2
+7f3c7eeca000-7f3c7eed0000 r-xp 00005000 fd:03 1451822                    /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.20.0
+7f3c7eed7000-7f3c7eed8000 r-xp 00001000 fd:03 1451826                    /usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.20.0
+7f3c7eedd000-7f3c7eedf000 r-xp 00002000 fd:03 1451824                    /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.20.0
+7f3c7eee7000-7f3c7eeed000 r-xp 00002000 fd:03 1451287                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f3c7eef4000-7f3c7eef5000 r-xp 00001000 fd:03 1451301                    /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f3c7ef02000-7f3c7ef61000 r-xp 0000a000 fd:03 1443891                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.4.1
+7f3c7ef82000-7f3c7ef95000 r-xp 00008000 fd:03 1443899                    /usr/lib/x86_64-linux-gnu/libhogweed.so.6.4
+7f3c7efcc000-7f3c7efef000 r-xp 0000a000 fd:03 1443928                    /usr/lib/x86_64-linux-gnu/libnettle.so.8.4
+7f3c7f00b000-7f3c7f019000 r-xp 00003000 fd:03 1443975                    /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.2
+7f3c7f031000-7f3c7f067000 r-xp 00011000 fd:03 1443986                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.2.0
+7f3c7f1ce000-7f3c7f1d2000 r-xp 00002000 fd:03 1443901                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.7
+7f3c7f216000-7f3c7f2ba000 r-xp 00029000 fd:03 1443938                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+7f3c7f32b000-7f3c7f331000 r-xp 00003000 fd:03 1443909                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+7f3c7f338000-7f3c7f339000 r-xp 00002000 fd:03 1443869                    /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1
+7f3c7f340000-7f3c7f35b000 r-xp 00004000 fd:03 1443903                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+7f3c7f38c000-7f3c7f3e9000 r-xp 00021000 fd:03 1443907                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+7f3c7f447000-7f3c7f52d000 r-xp 0000f000 fd:03 1443889                    /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+7f3c7f579000-7f3c7f57d000 r-xp 00003000 fd:03 1443867                    /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+7f3c7f583000-7f3c7f59c000 r-xp 00002000 fd:03 1443911                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+7f3c7f5ab000-7f3c7f65d000 r-xp 0000a000 fd:03 1443995                    /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+7f3c7f673000-7f3c7f68e000 r-xp 00003000 fd:03 1443913                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+7f3c7f69d000-7f3c7f708000 r-xp 00002000 fd:03 1443952                    /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+7f3c7f73b000-7f3c7f75b000 r-xp 00007000 fd:03 1443858                    /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+7f3c7f76d000-7f3c7f76f000 r-xp 00002000 fd:03 1451291                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f3c7f774000-7f3c7f776000 r-xp 00001000 fd:03 1451280                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f3c7f780000-7f3c7f786000 r-xp 00007000 fd:03 1451844                    /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0
+7f3c7f793000-7f3c7f79b000 r-xp 00007000 fd:03 1451828                    /usr/lib/x86_64-linux-gnu/libwayland-server.so.0.20.0
+7f3c7f7a6000-7f3c7f7ad000 r-xp 00002000 fd:03 1451311                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f3c7f7b6000-7f3c7f7bb000 r-xp 00005000 fd:03 1451846                    /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+7f3c7f7c1000-7f3c7f7c2000 r-xp 00001000 fd:03 1451850                    /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+7f3c7f7ca000-7f3c7f7f3000 r-xp 00005000 fd:03 1451688                    /usr/lib/x86_64-linux-gnu/libpng16.so.16.37.0
+7f3c7f80d000-7f3c7f896000 r-xp 0000d000 fd:03 1451486                    /usr/lib/x86_64-linux-gnu/libfreetype.so.6.18.1
+7f3c7f8d2000-7f3c7f958000 r-xp 0000a000 fd:03 1451684                    /usr/lib/x86_64-linux-gnu/libpixman-1.so.0.40.0
+7f3c7f975000-7f3c7f979000 r-xp 00002000 fd:03 1451772                    /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7f3c7f985000-7f3c7f9ae000 r-xp 00007000 fd:03 1451478                    /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.0
+7f3c7f9d1000-7f3c7fa62000 r-xp 00009000 fd:03 1451544                    /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.20704.0
+7f3c7fa9e000-7f3c7faab000 r-xp 00007000 fd:03 1451646                    /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.5000.6
+7f3c7fab4000-7f3c7fab7000 r-xp 00002000 fd:03 1451488                    /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7f3c7fb2e000-7f3c7fb97000 r-xp 00060000 fd:03 1451441                    /usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+7f3c7fc0b000-7f3c7fc26000 r-xp 00008000 fd:03 1451501                    /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4200.8
+7f3c7fc36000-7f3c7fc42000 r-xp 00003000 fd:03 1451299                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f3c7fc72000-7f3c7fcf5000 r-xp 0002b000 fd:03 1451499                    /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2404.29
+7f3c7fd7f000-7f3c7fea8000 r-xp 00031000 fd:03 1443893                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.31.0
+7f3c7ff4c000-7f3c7ffcb000 r-xp 00013000 fd:03 1443973                    /usr/lib/x86_64-linux-gnu/libsystemd.so.0.32.0
+7f3c80028000-7f3c801bd000 r-xp 00028000 fd:03 1443862                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7f3c80231000-7f3c80233000 r-xp 00004000 fd:03 1451385                    /usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11600.0
+7f3c8023e000-7f3c80246000 r-xp 00005000 fd:03 1451644                    /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.5000.6
+7f3c80251000-7f3c8025a000 r-xp 00004000 fd:03 1451344                    /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+7f3c80264000-7f3c8026a000 r-xp 00003000 fd:03 1451346                    /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.4
+7f3c8027a000-7f3c802b2000 r-xp 0000b000 fd:03 1443897                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+7f3c802c6000-7f3c802c7000 r-xp 00001000 fd:03 1451686                    /usr/lib/x86_64-linux-gnu/libplds4.so
+7f3c802cc000-7f3c802ce000 r-xp 00002000 fd:03 1451685                    /usr/lib/x86_64-linux-gnu/libplc4.so
+7f3c802d7000-7f3c802f1000 r-xp 00006000 fd:03 1443962                    /usr/lib/x86_64-linux-gnu/libselinux.so.1
+7f3c80305000-7f3c80331000 r-xp 00008000 fd:03 1443921                    /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+7f3c80343000-7f3c80354000 r-xp 00002000 fd:03 1443993                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f3c8035f000-7f3c80361000 r-xp 00002000 fd:03 1451521                    /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.7200.4
+7f3c80368000-7f3c8036f000 r-xp 00002000 fd:03 1443882                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0
+7f3c80375000-7f3c803ca000 r-xp 00002000 fd:03 1443950                    /usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3
+7f3c803ec000-7f3c80403000 r-xp 00003000 fd:03 1443887                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f3c80417000-7f3c80493000 r-xp 0000e000 fd:03 1443914                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7f3c804ff000-7f3c80518000 r-xp 0000f000 fd:03 1451342                    /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7f3c80554000-7f3c805eb000 r-xp 0002a000 fd:03 1451332                    /usr/lib/x86_64-linux-gnu/libasound.so.2.0.0
+7f3c80631000-7f3c80650000 r-xp 00004000 fd:03 1451858                    /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+7f3c8067f000-7f3c80693000 r-xp 0000b000 fd:03 1451856                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f3c806a2000-7f3c806c1000 r-xp 00004000 fd:03 1451445                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f3c806d4000-7f3c806df000 r-xp 00005000 fd:03 1451427                    /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+7f3c806e8000-7f3c806f0000 r-xp 00003000 fd:03 1451491                    /usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0
+7f3c806f8000-7f3c806ff000 r-xp 00002000 fd:03 1451309                    /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7f3c80705000-7f3c80708000 r-xp 00002000 fd:03 1451295                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f3c80724000-7f3c807b0000 r-xp 00019000 fd:03 1451278                    /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+7f3c8085d000-7f3c80930000 r-xp 00012000 fd:03 1451387                    /usr/lib/x86_64-linux-gnu/libcairo.so.2.11600.0
+7f3c80985000-7f3c809ba000 r-xp 00012000 fd:03 1451642                    /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.5000.6
+7f3c80a5e000-7f3c80de1000 r-xp 00084000 fd:03 1451542                    /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2404.29
+7f3c8121f000-7f3c81278000 r-xp 0001c000 fd:03 1451405                    /usr/lib/x86_64-linux-gnu/libcups.so.2
+7f3c812ad000-7f3c812c6000 r-xp 0000c000 fd:03 1451340                    /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7f3c812e4000-7f3c812f3000 r-xp 0000b000 fd:03 1451338                    /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23609.1
+7f3c8130e000-7f3c8133c000 r-xp 0000b000 fd:03 1451413                    /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+7f3c8135c000-7f3c8137e000 r-xp 0000b000 fd:03 1451621                    /usr/lib/x86_64-linux-gnu/libnspr4.so
+7f3c81399000-7f3c813b1000 r-xp 00008000 fd:03 1451736                    /usr/lib/x86_64-linux-gnu/libsmime3.so
+7f3c813d3000-7f3c814b0000 r-xp 00018000 fd:03 1451622                    /usr/lib/x86_64-linux-gnu/libnss3.so
+7f3c81524000-7f3c81635000 r-xp 00038000 fd:03 1451507                    /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.7200.4
+7f3c816e3000-7f3c81772000 r-xp 0001d000 fd:03 1451515                    /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.7200.4
+7f3c81880000-7f3c81a59000 r-xp 0007f000 fd:03 1475629                    /opt/QQ/libffmpeg.so
+7f3c81b68000-7f3c81b73000 r-xp 00004000 fd:03 1451293                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f3c81b7a000-7f3c81b7b000 r-xp 00001000 fd:03 1451289                    /usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+7f3c81b7f000-7f3c81b80000 r-xp 00001000 fd:03 1451285                    /usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+7f3c81b93000-7f3c81ba5000 r-xp 0000c000 fd:03 1451626                    /usr/lib/x86_64-linux-gnu/libnssutil3.so
+7f3c81bcb000-7f3c81bfe000 r-xp 0000f000 fd:03 1451527                    /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.7200.4
+7f3c81c1d000-7f3c81c1e000 r-xp 00001000 fd:03 1443957                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f3c81c22000-7f3c81c23000 r-xp 00001000 fd:03 1443876                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+7f3c81c31000-7f3c81c5b000 r-xp 00002000 fd:03 1443844                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fff8e3fb000-7fff8e41c000 rwxp 00000000 00:00 0                          [stack]
+7fff8e56e000-7fff8e570000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]

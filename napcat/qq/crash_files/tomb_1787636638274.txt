@@ -1,0 +1,49 @@
+--- --- --- --- --- --- --- Bugly NDK testbuildnum --- --- --- --- --- --- --- 
+ABI: x86_64
+time: 2026-08-25 13:43:58
+pid: 23, tid: 23, name: main_23  >>> /opt/QQ/qq_23 <<<
+signal: 5 (SIGTRAP), code: 128 (UNKNOWN_SIGTRAP) fault addr: (nil)
+si_errno:0, si_errnoMsg:Success, sending pid:0, sending uid:0
+CustomInfo: 
+
+    r8: 0x0000000000000000  r9: 0x0000000000000000  r10: 0x0000000000000000
+    r11: 0x0000000000000246  r12: 0x00007fff8e419dd0  r13: 0x0000000000000066
+    r14: 0x00007fff8e419dd1  r15: 0x00007fff8e419e58  rdi: 0x00005567cd6bc150
+    rsi: 0x0000000000000000  rbp: 0x00007fff8e419d70  rbx: 0x00007fff8e419940
+    rdx: 0x0000000000000001  rax: 0x00005567cd5e26f8  rcx: 0x0000000000000000
+    rsp: 0x00007fff8e419910  rip: 0x00005567c875398a  eflags: 0x0000000000000246
+    cs: 0x002b000000000033  err: 0x0000000000000000  trapno: 0x0000000000000003
+    oldmask: 0x0000000000000000  cr2: 0x0000000000000000
+        $$00    pc 0000000005d5398a    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$01    pc 0000000005d53408    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$02    pc 0000000005d539f9    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$03    pc 0000000004e4ec37    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$04    pc 0000000004e4bbf6    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$05    pc 0000000004e4a7bb    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$06    pc 0000000004e568d8    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$07    pc 0000000004e58297    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$08    pc 0000000004c59815    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$09    pc 000000000646701e    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$10    pc 0000000006121544    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$11    pc 000000000646c0d2    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$12    pc 000000000646dc27    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$13    pc 000000000611d9f4    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$14    pc 00000000023ef35f    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$15    pc 0000000006145d4f    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$16    pc 0000000005da15ff    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$17    pc 0000000005dc2e56    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$18    pc 0000000005e286b1    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$19    pc 0000000005dc35f1    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$20    pc 0000000005d82bfe    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$21    pc 0000000004c7766f    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$22    pc 0000000004c79292    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$23    pc 0000000004c74ee6    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$24    pc 00000000026efa34    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$25    pc 00000000026f3057    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$26    pc 00000000026f2e7c    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$27    pc 00000000026e8e46    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$28    pc 00000000026e8f40    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$29    pc 00000000023b850c    /opt/QQ/qq [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
+        $$30    pc 0000000000029d90    /usr/lib/x86_64-linux-gnu/libc.so.6 [x86_64::03240c91833978d494d39e537409b92e]
+        $$31    pc 0000000000029e40    /usr/lib/x86_64-linux-gnu/libc.so.6 (__libc_start_main+128) [x86_64::03240c91833978d494d39e537409b92e]
+        $$32    pc 0000000001faa02a    /opt/QQ/qq (_start+42) [x86_64::1377d4a6ecad7a1f9f6a4a26eb943115]
