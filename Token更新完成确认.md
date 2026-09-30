@@ -9,7 +9,7 @@
 
 ### Access Token
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU2YjBjYmQyMCIsInR5cCI6MSwiZXhwIjoxNzkyNTAxNDIyLjc0NDUzNjIsImlhdCI6MTc4OTkwOTQyMi43NDQ1MzYyLCJzdWIiOiI0YjRhNjM0YzU3OTc0MTE0OWZiZWI0ZWY2ZjhmMmRlYSJ9.0FNfNWkunvKjnvQGH-kQLyfQxKOpm4S46oXLr5cJdNM
+<ACCESS_TOKEN_已脱敏>
 ```
 
 ### Token有效期
@@ -29,9 +29,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU
 
 ```json
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "access_token": "<ACCESS_TOKEN_已脱敏>",
   "refresh_token": "",
-  "open_id": "4b4a634c579741149fbeb4ef6f8f2dea",
+  "open_id": "<已脱敏>",
   "book_id": "300000000$WKhAHYepeKoQ",
   "updated_at": "2026-09-20T21:00:00.000000+00:00"
 }
@@ -41,7 +41,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU
 **路径**: `c:\Users\xwct\Desktop\Ling\tencent-doc-filler\.env`
 
 ```env
-TENCENT_DOC_ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+TENCENT_DOC_ACCESS_TOKEN=<ACCESS_TOKEN_已脱敏>
 ```
 
 ---

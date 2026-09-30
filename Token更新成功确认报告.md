@@ -4,7 +4,7 @@
 
 ### 新Token信息
 ```
-Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU2YjBjYmQyMCIsInR5cCI6MSwiZXhwIjoxNzkyNTAxMzU2LjkyMjk0LCJpYXQiOjE3ODk5MDkzNTYuOTIyOTQsInN1YiI6IjRiNGE2MzRjNTc5NzQxMTQ5ZmJlYjRlZjZmOGYyZGVhIn0.DpFLF-s8i_DZQIbU-GVkP05kg6GndwpLZov0Is3YNJM
+Access Token: <ACCESS_TOKEN_已脱敏>
 ```
 
 ### Token有效期
@@ -34,9 +34,9 @@ Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0M
 **更新内容**:
 ```json
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...(新Token)",
+  "access_token": "<ACCESS_TOKEN_已脱敏>(新Token)",
   "refresh_token": "",
-  "open_id": "4b4a634c579741149fbeb4ef6f8f2dea",
+  "open_id": "<已脱敏>",
   "book_id": "300000000$WKhAHYepeKoQ",
   "updated_at": "2026-09-20T20:50:00.000000+00:00"
 }
@@ -47,7 +47,7 @@ Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0M
 
 **更新内容**:
 ```env
-TENCENT_DOC_ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...(新Token)
+TENCENT_DOC_ACCESS_TOKEN=<ACCESS_TOKEN_已脱敏>(新Token)
 ```
 
 ---

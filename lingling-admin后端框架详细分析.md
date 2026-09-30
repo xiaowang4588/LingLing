@@ -242,7 +242,7 @@ export ADMIN_QQ_IDS='2321850493,1234567890'
   "success": true,
   "message": "登录成功",
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "token": "<ACCESS_TOKEN_已脱敏>",
     "username": "admin",
     "expiresIn": 86400000
   }

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query
@@ -8,11 +10,40 @@ from pydantic import BaseModel, Field
 from config import API_TOKEN, HOST, PORT
 from fields import FORM_FIELD_ORDER, form_to_row_values, normalize_form_for_sheet, validate_form
 from tencent_client import TencentDocClient, TencentDocError
+from token_refresh_scheduler import TokenRefreshScheduler
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
+# 全局客户端和调度器
+client = TencentDocClient()
+token_scheduler = TokenRefreshScheduler(client, check_interval=3600, refresh_before_days=3)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """应用生命周期管理"""
+    # 启动时
+    logger.info("腾讯文档填表服务启动中...")
+    token_scheduler.start()
+    logger.info("Token 自动刷新调度器已启动")
+    yield
+    # 关闭时
+    logger.info("腾讯文档填表服务关闭中...")
+    await token_scheduler.stop()
+    logger.info("Token 自动刷新调度器已停止")
+
 
 app = FastAPI(
     title="腾讯文档报修填表服务",
     description="对接 qq-bot 报修表格，写入共享腾讯文档在线表格",
-    version="0.1.0",
+    version="0.2.0",
+    lifespan=lifespan,
 )
 
 
@@ -67,13 +98,17 @@ class SetRowPayload(BaseModel):
     note: str = Field(default="", description="备注，便于追溯手动调整")
 
 
-client = TencentDocClient()
 
 
 @app.get("/health")
 async def health() -> dict[str, Any]:
-    info = await client.health_info()
-    return {"status": "ok", **info}
+    try:
+        info = await client.health_info()
+        logger.debug("健康检查成功")
+        return {"status": "ok", **info}
+    except Exception as e:
+        logger.error(f"健康检查失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/oauth/authorize-url")
@@ -109,14 +144,18 @@ async def fill_repair_form(
     sync_row: bool = Query(default=False, description="写入前导出表格同步下一行"),
 ) -> FillResponse:
     form = payload.model_dump(exclude={"row"})
+    logger.info(f"收到填表请求: 故障教室={form.get('故障教室', 'N/A')} dry_run={dry_run}")
+
     missing = validate_form(form)
     if missing:
+        logger.warning(f"缺少必填字段: {missing}")
         return FillResponse(ok=False, missing_fields=missing)
 
     if dry_run:
         book_id = client.book_id or "(待转换)"
-        row = payload.row or client._read_next_row()
+        row = payload.row or await client._read_next_row()
         normalized = normalize_form_for_sheet(form)
+        logger.debug(f"预览模式: 将写入行号 {row}")
         return FillResponse(
             ok=True,
             dry_run=True,
@@ -134,23 +173,32 @@ async def fill_repair_form(
         result = await client.append_form_row(
             form, row=payload.row, sync_row=sync_row
         )
+        logger.info(f"填表成功: 行号={result['row']}")
     except TencentDocError as exc:
+        logger.error(f"腾讯文档API错误: {exc}")
         raise HTTPException(status_code=502, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.error(f"填表异常: {exc}")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
     return FillResponse(ok=True, result=result)
 
 
 @app.post("/api/repair/sync-row", response_model=SyncRowResponse, dependencies=[Depends(require_api_token)])
 async def sync_next_row() -> SyncRowResponse:
+    logger.info("开始同步下一行行号（从导出）")
     try:
         next_row = await client.sync_next_row_from_export()
+        logger.info(f"同步行号成功: next_row={next_row}")
     except TencentDocError as exc:
+        logger.error(f"同步行号失败: {exc}")
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     return SyncRowResponse(ok=True, next_row=next_row)
 
 
 @app.get("/api/repair/row", response_model=RowStateResponse, dependencies=[Depends(require_api_token)])
 async def get_repair_row() -> RowStateResponse:
-    state = client.get_row_state()
+    logger.debug("查询当前行号状态")
+    state = await client.get_row_state()
     return RowStateResponse(**state)
 
 
@@ -158,18 +206,30 @@ async def get_repair_row() -> RowStateResponse:
 async def set_repair_row(payload: SetRowPayload) -> RowStateResponse:
     from config import DATA_START_ROW
 
+    logger.info(f"手动设置行号: next_row={payload.next_row} note={payload.note}")
     if payload.next_row < DATA_START_ROW:
         raise HTTPException(
             status_code=400,
             detail=f"next_row 不能小于数据起始行 {DATA_START_ROW}",
         )
-    state = client.set_next_row(payload.next_row, note=payload.note or "manual_api")
+    state = await client.set_next_row(payload.next_row, note=payload.note or "manual_api")
     return RowStateResponse(**state)
 
 
 @app.get("/api/repair/fields")
 async def list_fields() -> dict[str, Any]:
     return {"fields": list(FORM_FIELD_ORDER)}
+
+
+@app.post("/api/repair/force-refresh-token")
+async def force_refresh_token() -> dict[str, Any]:
+    """手动触发 Token 刷新（调试用）"""
+    logger.info("收到手动刷新 Token 请求")
+    success = await token_scheduler.force_refresh()
+    if success:
+        return {"ok": True, "message": "Token 刷新成功"}
+    else:
+        raise HTTPException(status_code=500, detail="Token 刷新失败，请检查日志")
 
 
 if __name__ == "__main__":

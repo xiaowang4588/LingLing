@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,9 @@ from config import (
     TOKEN_FILE,
 )
 from fields import FORM_FIELD_ORDER, build_write_range, form_to_row_values
+from file_lock import FileLock, safe_read_json, safe_write_json, safe_update_json
+
+logger = logging.getLogger(__name__)
 
 
 class TencentDocError(Exception):
@@ -53,19 +57,26 @@ class TencentDocClient:
         self._load_token_file()
 
     def _load_token_file(self) -> None:
+        """从文件加载 Token（使用文件锁）"""
         if not TOKEN_FILE.is_file():
             return
         try:
-            data = json.loads(TOKEN_FILE.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            return
-        self.access_token = data.get("access_token") or self.access_token
-        self.refresh_token = data.get("refresh_token") or self.refresh_token
-        self.open_id = data.get("open_id") or self.open_id
-        if data.get("book_id"):
-            self.book_id = data["book_id"]
+            # 初始化时同步读取；FileLock 兼容 Linux(fcntl) 与 Windows(msvcrt)
+            with FileLock(TOKEN_FILE, exclusive=False) as f:
+                data = json.load(f)
 
-    def _save_token_file(self) -> None:
+            self.access_token = data.get("access_token") or self.access_token
+            self.refresh_token = data.get("refresh_token") or self.refresh_token
+            self.open_id = data.get("open_id") or self.open_id
+            if data.get("book_id"):
+                self.book_id = data["book_id"]
+            logger.info("成功加载 Token 文件")
+        except (OSError, json.JSONDecodeError) as e:
+            logger.warning(f"加载 Token 文件失败: {e}")
+            return
+
+    async def _save_token_file(self) -> None:
+        """保存 Token 到文件（使用文件锁）"""
         payload = {
             "access_token": self.access_token,
             "refresh_token": self.refresh_token,
@@ -73,10 +84,11 @@ class TencentDocClient:
             "book_id": self.book_id,
             "updated_at": datetime.now(timezone.utc).isoformat(),
         }
-        TOKEN_FILE.write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+        success = await safe_write_json(TOKEN_FILE, payload)
+        if success:
+            logger.info("Token 文件保存成功")
+        else:
+            logger.error("Token 文件保存失败")
 
     @staticmethod
     def parse_sheet_url(url: str) -> tuple[str, str]:
@@ -124,11 +136,15 @@ class TencentDocClient:
                 json=json_body,
                 data=data,
             )
+
+        # 处理 401 未授权，自动刷新 Token
         if resp.status_code == 401 and retry_on_auth and self.refresh_token:
+            logger.warning("Access Token 已过期，尝试自动刷新")
             await self.refresh_access_token()
             return await self._request(
-                method, path, params=params, json_body=json_body, retry_on_auth=False
+                method, path, params=params, json_body=json_body, data=data, retry_on_auth=False
             )
+
         try:
             data = resp.json()
         except ValueError as exc:
@@ -181,12 +197,16 @@ class TencentDocClient:
         self.access_token = data["access_token"]
         self.refresh_token = data.get("refresh_token") or self.refresh_token
         self.open_id = data.get("user_id") or self.open_id
-        self._save_token_file()
+        await self._save_token_file()
+        logger.info("OAuth授权成功，Token已保存")
         return data
 
     async def refresh_access_token(self) -> dict[str, Any]:
+        """刷新 Access Token（使用 Refresh Token）"""
         if not (self.client_id and self.client_secret and self.refresh_token):
             raise TencentDocError("无法刷新 token：缺少 client 或 refresh_token")
+
+        logger.info("开始刷新 Access Token")
         params = {
             "client_id": self.client_id,
             "client_secret": self.client_secret,
@@ -197,13 +217,16 @@ class TencentDocClient:
             resp = await client.get(f"{OAUTH_BASE}/token", params=params)
         data = resp.json()
         if resp.status_code >= 400 or "access_token" not in data:
+            logger.error(f"刷新 Token 失败: {data}")
             raise TencentDocError(f"刷新 token 失败: {data}")
+
         self.access_token = data["access_token"]
         if data.get("refresh_token"):
             self.refresh_token = data["refresh_token"]
         if data.get("user_id"):
             self.open_id = data["user_id"]
-        self._save_token_file()
+        await self._save_token_file()
+        logger.info("Access Token 刷新成功")
         return data
 
     async def ensure_book_id(self) -> str:
@@ -227,7 +250,7 @@ class TencentDocClient:
         if not book_id:
             raise TencentDocError("fileID 转换失败", payload=data)
         self.book_id = book_id
-        self._save_token_file()
+        await self._save_token_file()
         return book_id
 
     @staticmethod
@@ -241,54 +264,54 @@ class TencentDocClient:
         safe_range = range_a1.replace("!", "%21")
         return f"/sheetbook/v2/{safe_book}/values/{safe_range}"
 
-    def _read_row_state(self) -> dict[str, Any]:
-        if ROW_STATE_FILE.is_file():
-            try:
-                data = json.loads(ROW_STATE_FILE.read_text(encoding="utf-8"))
-                if isinstance(data, dict):
-                    return data
-            except (OSError, json.JSONDecodeError):
-                pass
-        return {}
+    async def _read_row_state(self) -> dict[str, Any]:
+        """异步读取行号状态（使用文件锁）"""
+        data = await safe_read_json(ROW_STATE_FILE, default={})
+        return data if isinstance(data, dict) else {}
 
-    def _read_next_row(self) -> int:
-        state = self._read_row_state()
+    async def _read_next_row(self) -> int:
+        """异步读取下一行行号"""
+        state = await self._read_row_state()
         try:
             row = int(state.get("next_row", DATA_START_ROW))
         except (TypeError, ValueError):
             row = DATA_START_ROW
         return max(row, DATA_START_ROW)
 
-    def _write_next_row(
+    async def _write_next_row(
         self,
         row: int,
         *,
         last_written_row: int | None = None,
         note: str | None = None,
     ) -> None:
+        """异步写入下一行行号（使用文件锁，原子性更新）"""
         row = max(int(row), DATA_START_ROW)
-        state = self._read_row_state()
-        state["next_row"] = row
-        state["updated_at"] = datetime.now(timezone.utc).isoformat()
-        if last_written_row is not None:
-            state["last_written_row"] = last_written_row
-        if note:
-            state["note"] = note
-        ROW_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
-        ROW_STATE_FILE.write_text(
-            json.dumps(state, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
 
-    def set_next_row(self, row: int, *, note: str = "") -> dict[str, Any]:
+        def update_fn(state: dict[str, Any]) -> dict[str, Any]:
+            state = state or {}
+            state["next_row"] = row
+            state["updated_at"] = datetime.now(timezone.utc).isoformat()
+            if last_written_row is not None:
+                state["last_written_row"] = last_written_row
+            if note:
+                state["note"] = note
+            return state
+
+        success, new_state = await safe_update_json(ROW_STATE_FILE, update_fn, default={})
+        if not success:
+            logger.error("写入行号状态失败")
+
+    async def set_next_row(self, row: int, *, note: str = "") -> dict[str, Any]:
         """手动设置下一次写入行号（不小于 DATA_START_ROW）。"""
-        self._write_next_row(row, note=note or "manual")
-        return self.get_row_state()
+        await self._write_next_row(row, note=note or "manual")
+        return await self.get_row_state()
 
-    def get_row_state(self) -> dict[str, Any]:
-        state = self._read_row_state()
+    async def get_row_state(self) -> dict[str, Any]:
+        """获取当前行号状态"""
+        state = await self._read_row_state()
         return {
-            "next_row": self._read_next_row(),
+            "next_row": await self._read_next_row(),
             "data_start_row": DATA_START_ROW,
             "last_written_row": state.get("last_written_row"),
             "updated_at": state.get("updated_at"),
@@ -352,13 +375,15 @@ class TencentDocClient:
                 pass
             else:
                 next_row = candidate
-        self._write_next_row(next_row, note="sync_export")
+        await self._write_next_row(next_row, note="sync_export")
+        logger.info(f"从导出同步行号成功: next_row={next_row}")
         return next_row
 
     async def _maybe_sync_next_row(self, *, force: bool = False) -> None:
         if not force and not SYNC_ROW_BEFORE_FILL:
             return
-        if self._read_next_row() >= DATA_START_ROW and not force:
+        next_row_val = await self._read_next_row()
+        if next_row_val >= DATA_START_ROW and not force:
             return
         try:
             await self.sync_next_row_from_export()
@@ -381,7 +406,7 @@ class TencentDocClient:
         elif row is None:
             await self._maybe_sync_next_row(force=False)
 
-        target_row = row or self._read_next_row()
+        target_row = row or await self._read_next_row()
         if target_row < DATA_START_ROW:
             target_row = DATA_START_ROW
 
@@ -394,7 +419,9 @@ class TencentDocClient:
             json_body=payload,
         )
         if row is None:
-            self._write_next_row(target_row + 1, last_written_row=target_row, note="auto_after_fill")
+            await self._write_next_row(target_row + 1, last_written_row=target_row, note="auto_after_fill")
+
+        logger.info(f"成功写入腾讯文档 行号={target_row} 故障教室={form.get('故障教室', 'N/A')}")
         return {
             "book_id": book_id,
             "sheet_id": self.sheet_id,
@@ -415,7 +442,7 @@ class TencentDocClient:
             "encoded_id": encoded_id or self.encoded_id,
             "sheet_id": tab or self.sheet_id,
             "data_start_row": DATA_START_ROW,
-            "next_row": self._read_next_row(),
-            "row_state": self.get_row_state(),
+            "next_row": await self._read_next_row(),
+            "row_state": await self.get_row_state(),
             "fields": list(FORM_FIELD_ORDER),
         }

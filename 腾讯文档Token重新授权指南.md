@@ -157,7 +157,7 @@ grep TENCENT_DOC_CLIENT_SECRET tencent-doc-filler/.env
 
 **如果为空**，需要从腾讯文档开放平台获取并配置：
 ```env
-TENCENT_DOC_CLIENT_SECRET=your-secret-here
+TENCENT_DOC_CLIENT_SECRET=<已脱敏>
 ```
 
 ### Q4: Token有效期多久？
@@ -180,9 +180,9 @@ async def refresh_access_token(self):
 ### token.json（更新后）
 ```json
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...(新Token)",
+  "access_token": "<ACCESS_TOKEN_已脱敏>(新Token)",
   "refresh_token": "新的refresh_token",
-  "open_id": "4b4a634c579741149fbeb4ef6f8f2dea",
+  "open_id": "<已脱敏>",
   "book_id": "300000000$WKhAHYepeKoQ",
   "updated_at": "2026-09-20T..."
 }
@@ -191,8 +191,8 @@ async def refresh_access_token(self):
 ### .env（手动更新）
 建议同步更新.env中的Token：
 ```env
-TENCENT_DOC_ACCESS_TOKEN=新的access_token
-TENCENT_DOC_REFRESH_TOKEN=新的refresh_token
+TENCENT_DOC_ACCESS_TOKEN=<已脱敏>
+TENCENT_DOC_REFRESH_TOKEN=<已脱敏>
 ```
 
 ---

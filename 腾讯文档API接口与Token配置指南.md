@@ -1,4 +1,4 @@
-# 腾讯文档API接口与Token配置指南
+ # 腾讯文档API接口与Token配置指南
 
 ## 📋 目录
 - [当前配置概览](#当前配置概览)
@@ -20,7 +20,7 @@
 | **Client ID** | `94860fc7955d43919af8c94e6b0cbd20` | 应用标识 |
 | **Client Secret** | `（未在.env中显示）` | 应用密钥（敏感信息） |
 | **Open ID** | `4b4a634c579741149fbeb4ef6f8f2dea` | 用户标识 |
-| **Access Token** | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` | 访问令牌（JWT格式） |
+| **Access Token** | `<ACCESS_TOKEN_已脱敏>` | 访问令牌（JWT格式） |
 | **Refresh Token** | `（空）` | 刷新令牌（未配置） |
 
 ### 目标表格信息
@@ -46,7 +46,7 @@
 
 ### 1. Access Token（访问令牌）
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU2YjBjYmQyMCIsInR5cCI6MSwiZXhwIjoxNzgzMzk0MTQ0Ljc5ODAwOCwiaWF0IjoxNzgwODAyMTQ0Ljc5ODAwOCwic3ViIjoiNGI0YTYzNGM1Nzk3NDExNDlmYmViNGVmNmY4ZjJkZWEifQ.BaLBPYs25BGEHFrWUiavD19Mll0f2TUgH75ZTTcBHr0
+<ACCESS_TOKEN_已脱敏>
 ```
 
 **Token解析**（JWT Payload）：
@@ -67,9 +67,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHQiOiI5NDg2MGZjNzk1NWQ0MzkxOWFmOGM5NGU
 
 ### 2. 认证Header格式
 ```http
-Access-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Access-Token: <ACCESS_TOKEN_已脱敏>
 Client-Id: 94860fc7955d43919af8c94e6b0cbd20
-Open-Id: 4b4a634c579741149fbeb4ef6f8f2dea
+Open-Id: <已脱敏>
 Accept: application/json
 ```
 
@@ -311,9 +311,9 @@ GET /api/repair/fields
 
 ```json
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "access_token": "<ACCESS_TOKEN_已脱敏>",
   "refresh_token": "",
-  "open_id": "4b4a634c579741149fbeb4ef6f8f2dea",
+  "open_id": "<已脱敏>",
   "book_id": "300000000$WKhAHYepeKoQ",
   "updated_at": "2026-06-07T03:18:02.966392+00:00"
 }
@@ -391,10 +391,10 @@ TENCENT_DOC_FILLER_API_TOKEN=your-secure-api-token-here
 
 # 腾讯文档OAuth凭证
 TENCENT_DOC_CLIENT_ID=94860fc7955d43919af8c94e6b0cbd20
-TENCENT_DOC_CLIENT_SECRET=your-client-secret-here
-TENCENT_DOC_ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-TENCENT_DOC_REFRESH_TOKEN=your-refresh-token-here
-TENCENT_DOC_OPEN_ID=4b4a634c579741149fbeb4ef6f8f2dea
+TENCENT_DOC_CLIENT_SECRET=<已脱敏>
+TENCENT_DOC_ACCESS_TOKEN=<ACCESS_TOKEN_已脱敏>
+TENCENT_DOC_REFRESH_TOKEN=<已脱敏>
+TENCENT_DOC_OPEN_ID=<已脱敏>
 TENCENT_DOC_REDIRECT_URI=https://docs.qq.com
 
 # 目标表格
